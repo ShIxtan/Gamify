@@ -25,7 +25,7 @@ gamify is a clone of HabitRPG built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication (~.5 day) -COMPLETE
+### Phase 1: User Authentication (-COMPLETE)
 I will implement user authentication in Rails based on the practices learned at
 App Academy. I'll also add a login for guest users. The most important part of this
 phase will be pushing the app to Heroku and ensuring that everything works
