@@ -1,4 +1,4 @@
-# Flux-capacitr
+# Gamify
 
 [Heroku link][heroku]
 
