@@ -1,0 +1,46 @@
+# Schema Information
+
+## rewards
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+title       | string    | not null
+cost        | integer   | not null
+user_id     | integer   | not null, foreign key (references user)
+
+## todos
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+title       | string    | not null
+user_id     | integer   | not null, foreign key (references user)
+
+## dailies
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+title       | string    | not null
+user_id     | integer   | not null, foreign key (references user)
+
+## habits
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+is_bad      | boolean   | not null
+title       | string    | not null
+user_id     | integer   | not null, foreign key (references user)
+
+## task_clicks
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+task_type   | string    | not null, foreign key
+task_id     | integer   | not null, foreign key (references task)
+
+## users
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+username        | string    | not null, unique
+password_digest | string    | not null
+session_token   | string    | not null, unique
