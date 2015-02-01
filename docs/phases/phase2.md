@@ -1,10 +1,10 @@
 # Phase 2: JSON API and adding Habits from Backbone
 ## Rails
 ### Models
-Habits
+* Habits
 
 ### Controllers
-Api::HabitsController (create, destroy, index, update)
+* Api::HabitsController (create, destroy, index, update)
 
 ### Views
 * habits/index.json.jbuilder
