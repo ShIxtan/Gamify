@@ -1,0 +1,14 @@
+<form id="signup" action="<%= users_url %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="user_username">Username</label>
+  <input type="text" name="user[username]" value="<%= @user.username %>" id="user_username">
+
+  <label for="user_password">Password</label>
+  <input type="password" name="user[password]" id="user_password">
+
+  <input type="submit" value="Play" id="Play">
+</form>
+
+<%= button_to "Sign In as Guest!", guest_url, method: "get" %>
