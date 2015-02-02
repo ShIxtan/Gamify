@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   validates :username, :session_token, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
+  has_many :habits
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
