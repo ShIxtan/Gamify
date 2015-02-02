@@ -3,16 +3,15 @@
 ## Rails
 ### Models
 * User
-* Post
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* PostsController (create, new, show)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
+* users/show.html.erb
 
 ## Backbone
 ### Models
