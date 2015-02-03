@@ -9,7 +9,7 @@ gamify is a clone of HabitRPG built on Rails and Backbone. Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
-- [ ] Create/remove habits
+- [x] Create/remove habits
 - [ ] Create/remove dailies
 - [ ] Create/remove to-dos
 - [ ] Create/remove rewards
