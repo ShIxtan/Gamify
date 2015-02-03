@@ -4,11 +4,7 @@ window.GamifyApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new GamifyApp.Routers.Router()
+    new GamifyApp.Routers.Router({$rootEl: $('body')})
     Backbone.history.start()
   }
 };
-
-$(document).ready(function(){
-  GamifyApp.initialize();
-});

@@ -1,12 +1,16 @@
 GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   template: JST['tasks/index'],
 
-  render: function(){
-    this.$el.html(this.template({name: "Habit"}))
+  initialize: function(options){
+    this.name = options.name;
+  },
 
-    this.collection.each(function(habit){
-      habitView = new GamifyApp.Views.HabitIndexItem({model: habit});
-      this.addSubview("ul", habitView);
+  render: function(){
+    this.$el.html(this.template({name: this.name}))
+
+    this.collection.each(function(task){
+      taskView = new GamifyApp.Views.HabitIndexItem({model: task});
+      this.addSubview("ul", taskView);
     }, this)
 
     return this;

@@ -18,16 +18,13 @@
 ### Models
 * Daily
 * Todo
-* Reward
 
 ### Collections
 * Dailies
 * Todos
-* Rewards
 
 ### Views
 * DailyIndexItem
 * TodoIndexItem
-* RewardIndexItem
 
 ## Gems/Libraries

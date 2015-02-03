@@ -1,5 +1,4 @@
-<form id="signup" action="<%= users_url %>" method="post">
-  <input type="hidden" name="_method" value="patch">
+<form id="signup" action="<%= session_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label for="user_username">Username</label>
