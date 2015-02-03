@@ -25,3 +25,6 @@
 
 ## Gems/Libraries
 * jQuery UI to make habits sortable.
+* jQuery.editable to allow inline editing
+* jQuery.serializeJSON to simplify form serializing
+* Bootstrap for styling

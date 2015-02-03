@@ -8,12 +8,13 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
 
   events: {
     "submit": "createTask",
-    "click span": "createTask"
+    "click .add": "createTask"
   },
 
   render: function(){
     this.$el.html(this.template({name: this.name}))
     this.collection.each(this.addIndexItem)
+    this.$('.task-list').sortable();
     return this;
   },
 

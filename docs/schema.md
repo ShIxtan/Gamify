@@ -4,6 +4,7 @@
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+rank        | integer   | not null, default 0
 title       | string    | not null
 cost        | integer   | not null
 user_id     | integer   | not null, foreign key (references user)
@@ -12,6 +13,7 @@ user_id     | integer   | not null, foreign key (references user)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+rank        | integer   | not null, default 0
 title       | string    | not null
 user_id     | integer   | not null, foreign key (references user)
 
@@ -19,6 +21,7 @@ user_id     | integer   | not null, foreign key (references user)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+rank        | integer   | not null, default 0
 title       | string    | not null
 user_id     | integer   | not null, foreign key (references user)
 
@@ -27,6 +30,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 is_bad      | boolean   | not null
+rank        | integer   | not null, default 0
 title       | string    | not null
 user_id     | integer   | not null, foreign key (references user)
 
