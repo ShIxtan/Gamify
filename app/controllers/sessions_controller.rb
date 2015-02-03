@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      redirect_to user_url(@user)
+      redirect_to root_url
     else
       flash[:errors] = ["invalid password"]
       redirect_to new_session_url
@@ -19,6 +19,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    logout!(current_user)
+    redirect_to new_session_url
+  end
+
+  def show
     logout!(current_user)
     redirect_to new_session_url
   end
