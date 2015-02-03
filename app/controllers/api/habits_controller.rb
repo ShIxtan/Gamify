@@ -2,6 +2,7 @@ module Api
   class HabitsController < ApiController
     def create
       habit = Habit.new(habit_params)
+      habit.user_id = current_user.id
       if habit.save
         render :json => habit
       else
