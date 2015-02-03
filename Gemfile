@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'newrelic_rpm'
 gem 'backbone-on-rails'
+gem 'bootstrap-sass'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -45,7 +46,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'annotate'
-
+  gem 'binding_of_caller'
   gem 'better_errors'
 
   gem 'pry-rails'

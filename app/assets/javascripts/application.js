@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require bootstrap
 //= require gamify_app
 //= require_tree ../templates
 //= require_tree ./utils
