@@ -4,6 +4,7 @@ GamifyApp.Views.HabitIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render)
+    this.$el.attr("id", this.model.id);
   },
 
   events: {

@@ -8,7 +8,8 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
 
   events: {
     "submit": "createTask",
-    "click .add": "createTask"
+    "click .add": "createTask",
+    "sortstop": "updateOrder"
   },
 
   render: function(){
@@ -27,13 +28,17 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     event.preventDefault();
     params = this.$('form').serializeJSON()
     this.$('.task-title').val("")
-    task = new GamifyApp.Models.Habit(params)
-    tasks = this.collection;
+    this.collection.create(params)
+  },
 
-    task.save({}, {
-      success: function(){
-        tasks.add(task);
-      }
+  updateOrder: function(){
+    var sortedIds = $(".task-list").sortable("toArray")
+    var that = this
+
+    this.collection.each(function(task){
+      var rank = sortedIds.indexOf(task.id.toString())
+      task.set({rank: rank});
+      task.save();
     });
   }
 

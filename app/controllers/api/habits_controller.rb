@@ -26,13 +26,13 @@ module Api
     end
 
     def index
-      render json: current_user.habits
+      render json: current_user.habits.order(:rank)
     end
 
     private
 
     def habit_params
-      params.require(:habit).permit(:title)
+      params.require(:habit).permit(:title, :rank)
     end
   end
 end
