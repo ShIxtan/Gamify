@@ -9,12 +9,10 @@
 ### Controllers
 * API::DaliesController
 * API::TodosController
-* API::RewardsController
 
 ### Views
 * dailies/index.json.jbuilder
 * todos/index.json.jbuilder
-* rewards/index.json.jbuilder
 
 ## Backbone
 ### Models

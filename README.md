@@ -40,26 +40,22 @@ phase, I'll have Backbone views to display and edit habits
 
 [Details][phase-two]
 
-### Phase 3: Dailies, To-dos, and Rewards(~2.5 days)
-I will add Rails API routes for dailies, to-dos, and rewards. After each, I'll add Backbone Models and views to allow adding and removing in their respective lists. At this stage, the four lists will be very similar, but they will be differentiated in the next phase.
+### Phase 3: Dailies and To-dos(~2 days)
+I will add Rails API routes for dailies and to-dos. After each, I'll add Backbone Models and views to allow adding and removing in their respective lists. At this stage, the three lists will be very similar, but they will be differentiated in the next phase.
 
 [Details][phase-three]
 
-### Phase 4: Experience point rewards(~2 days)
-I'll update the Rails User model to track Health, XP, and gold.
-- [ ] add button to perform each habit that adds XP and Gold
+### Phase 4: Gold and rewards(~2 days)
+I'll update the Rails User model to track gold. Add one more model for Rewards that can be purchased with gold
+- [ ] add button to perform each habit that adds Gold
 - [ ] add similar button to dailies that can only be checked once a day
-- [ ] add checkbox to to-dos that removes them in addition to granting rewards.
-- [ ] add button to Rewards that allows purchasing them with gold.
+- [ ] add checkbox to to-dos that removes them in addition to granting gold.
 
 [Details][phase-four]
 
-### Phase 5: Punishments and levels(~1 day)
-Add ways to lose health, like failing to do dailies, or allowing some habits to be "bad." Also allow "leveling up" when enough XP is gained. This should restore health, and increase the maximum. If a user's health hits 0, they "die" and go back to level one.
-
-[Details][phase-five]
-
 ### Bonus Features (TBD)
+- [ ] allow user to "level up" by gaining experience points
+- [ ] track user's health and have them "die" (go back to level one)
 - [ ] have tasks change color to reflect how often they are done
 - [ ] allow users to choose a "class," which displays a different avatar.
 - [ ] allow users to "friend" each other, show friends' avatar and level.
@@ -76,4 +72,3 @@ Add ways to lose health, like failing to do dailies, or allowing some habits to 
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md

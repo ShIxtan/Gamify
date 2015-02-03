@@ -2,22 +2,27 @@
 
 ## Rails
 ### Models
-* Update User model with health, xp, and gold
+* Update User model with gold
 
 ### Controllers
 * Api::UsersController (update, show)
+* Api::RewardsController
 
 ### Views
 * users/show.json.jbuilder
+* rewards/index.json.jbuilder
 
 ## Backbone
 ### Models
 * User
+* Reward
 
 ### Collections
+* Rewards
 
 ### Views
 * UserShow
-* Edit all four IndexItem views to add buttons
+* Edit all three IndexItem views to add buttons
+* RewardIndexItem
 
 ## Gems/Libraries
