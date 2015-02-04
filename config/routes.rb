@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :habits, only: [:create, :destroy, :index, :update]
     resources :dailies, only: [:create, :destroy, :index, :update]
     resources :todos, only: [:create, :destroy, :update, :index]
+    resources :rewards, only: [:create, :destroy, :update, :index]
   end
 end

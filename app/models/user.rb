@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :habits
   has_many :dailies
   has_many :todos
+  has_many :rewards
 
   def password=(password)
     @password = password
