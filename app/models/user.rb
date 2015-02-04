@@ -17,7 +17,7 @@
 
 class User < ActiveRecord::Base
   after_initialize :ensure_session_token
-  after_update :level_up, if: :column_level_changed?
+  after_update :level_up
 
   attr_reader :password
 
@@ -31,8 +31,12 @@ class User < ActiveRecord::Base
   has_many :rewards
 
   def level_up
-    max_health = 50 + (level * 5)
-    save!
+    if max_health < (50 + (level * 5))
+      self.max_health = 50 + (level * 5)
+      self.health = max_health
+      self.xp = 0
+      save!
+    end
   end
 
   def password=(password)
