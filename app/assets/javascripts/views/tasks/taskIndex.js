@@ -22,6 +22,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   addIndexItem: function(task){
     taskView = new GamifyApp.Views.HabitIndexItem({model: task});
     this.addSubview("ul", taskView);
+    this.updateOrder();
   },
 
   createTask: function(event){
