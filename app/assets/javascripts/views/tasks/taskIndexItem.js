@@ -1,4 +1,6 @@
 GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
+  template: JST['tasks/indexItem'],
+
   initialize: function(){
     this.listenTo(this.model, "sync", this.render)
   },

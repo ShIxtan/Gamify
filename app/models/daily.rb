@@ -1,19 +1,17 @@
 # == Schema Information
 #
-# Table name: habits
+# Table name: dailies
 #
 #  id         :integer          not null, primary key
-#  title      :string           not null
+#  title      :text             not null
+#  rank       :integer
 #  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  rank       :integer
 #
 
-require 'test_helper'
+class Daily < ActiveRecord::Base
+  validates :title, :user_id, presence: true
 
-class HabitTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  belongs_to :user
 end

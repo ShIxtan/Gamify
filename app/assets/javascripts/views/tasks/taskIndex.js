@@ -1,5 +1,6 @@
 GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   template: JST['tasks/index'],
+  tagName: "div class='task-box'",
 
   initialize: function(options){
     this.name = options.name;
@@ -28,14 +29,11 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     event.preventDefault();
     params = this.$('form').serializeJSON();
     this.$('.task-title').val("");
-    this.collection.create(params, {
-      wait: true
-    });
+    this.collection.create(params);
   },
 
   updateOrder: function(){
-    var sortedIds = $(".task-list").sortable("toArray")
-    var that = this
+    var sortedIds = this.$(".task-list").sortable("toArray")
 
     this.collection.each(function(task){
       var rank = sortedIds.indexOf(task.id.toString())
