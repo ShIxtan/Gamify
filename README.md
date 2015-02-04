@@ -57,7 +57,8 @@ I'll update the Rails User model to track gold. Add one more model for Rewards t
 ### Bonus Features (TBD)
 - [x] allow user to "level up" by gaining experience points
 - [ ] track user's health and have them "die" (go back to level one)
-- [ ] dailies reduce health if not completed.
+- [x] dailies reduce health if not completed.
+- [ ] progress bars for health and xp.
 - [ ] allow "bad habits," that do damage.
 - [ ] have tasks change color to reflect how often they are done
 - [ ] allow users to choose a "class," which displays a different avatar.
