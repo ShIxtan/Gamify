@@ -4,5 +4,9 @@ GamifyApp.Views.TodoIndexItem = GamifyApp.Views.TaskIndexItem.extend({
     this.gold = 10
     this.buttonClass = "glyphicon-ok"
     this.$el.addClass('todo')
+  },
+
+  check: function(event){
+    this.deleteTask(event)
   }
 })

@@ -5,11 +5,16 @@
 .task-box {
   float: left;
   margin: 20px;
+  width: 250px;
 }
 
 .task.task-shadow {
   background: black;
   opacity: 0.2;
+}
+
+.task {
+  cursor: move;
 }
 
 .task .del {

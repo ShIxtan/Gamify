@@ -1,9 +1,13 @@
 <h1><%= name %></h1>
 
 <form class="add-task <%= name %>">
-  <input type="text" name="title" class="task-title" placeholder="Add <%= name %>">
+  <div class="input-group">
+    <input type="text" name="title" class="task-title form-control" placeholder="Add <%= name %>">
+    <span class="input-group-btn">
+      <button class="add btn btn-default glyphicon glyphicon-plus"></button>
+    </span>
+  </div>
 
-  <span class="add btn glyphicon glyphicon-plus"></span>
 </form>
 
 <ul class="list-group task-list <%= name %>">
