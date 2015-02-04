@@ -22,14 +22,14 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   addIndexItem: function(task){
     taskView = new GamifyApp.Views.HabitIndexItem({model: task});
     this.addSubview("ul", taskView);
-    this.updateOrder();
   },
 
   createTask: function(event){
     event.preventDefault();
-    params = this.$('form').serializeJSON()
-    this.$('.task-title').val("")
-    this.collection.create(params)
+    params.rank = this.collection.length;
+    params = this.$('form').serializeJSON();
+    this.$('.task-title').val("");
+    this.collection.create(params);
   },
 
   updateOrder: function(){
