@@ -4,7 +4,6 @@
 ### Models
 * Daily
 * Todo
-* Reward
 
 ### Controllers
 * API::DaliesController
