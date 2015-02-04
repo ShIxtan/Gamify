@@ -1,13 +1,25 @@
-<form id="signup" action="<%= session_url %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<div class="container">
+  <h1>Gamify App!</h1>
+  <form id="signup" action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <label for="user_username">Username</label>
-  <input type="text" name="user[username]" value="<%= @user.username %>" id="user_username">
+    <div class="form-group">
+      <input class="form-control" type="text" name="user[username]" value="<%= @user.username %>" placeholder="username">
+    </div>
 
-  <label for="user_password">Password</label>
-  <input type="password" name="user[password]" id="user_password">
+    <div class="form-group">
+      <input class="form-control" type="password" name="user[password]" placeholder="password">
+    </div>
 
-  <input type="submit" value="Play" id="Play">
-</form>
+    <input type="submit" class="btn btn-default" value="Play" id="Play">
+  </form>
 
-<%= button_to "Sign In as Guest!", guest_url, method: "get" %>
+  <a href="<%= new_user_url %>"><button name="New User" class="btn btn-default">New User</button></a>
+
+  <form method="post" action="<%= session_url %>">
+    <input type="submit" class="btn btn-default" value="Sign In as Guest!">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="user[username]" value="Guest">
+    <input type="hidden" name="user[password]" value="password">
+  </form>
+</div>
