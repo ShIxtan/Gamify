@@ -1,1 +1,8 @@
-<%= user.get("username") %> <small><%= user.get("gold") %> Gold</small>
+<%= user.get("username") %>
+<small>
+  <ul>
+    <li><%= user.get("gold") %> Gold</li>
+    <li><%= user.get("xp") %> XP</li>
+    <li><%= user.get("health") %> Health</li>
+  </ul>
+</small>
