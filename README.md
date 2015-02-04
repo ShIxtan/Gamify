@@ -45,11 +45,11 @@ I will add Rails API routes for dailies and to-dos. After each, I'll add Backbon
 
 [Details][phase-three]
 
-### Phase 4: Gold and rewards(~2 days)
+### Phase 4: Gold and rewards(~2 days) -COMPLETE
 I'll update the Rails User model to track gold. Add one more model for Rewards that can be purchased with gold
 - [x] add button to perform each habit that adds Gold
-- [ ] add similar button to dailies that can only be checked once a day
-- [ ] add checkbox to to-dos that removes them in addition to granting gold.
+- [x] add similar button to dailies that can only be checked once a day
+- [x] add checkbox to to-dos that removes them in addition to granting gold.
 - [x] add button to rewards that "purchase" them by removing gold
 
 [Details][phase-four]
