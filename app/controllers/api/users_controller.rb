@@ -15,7 +15,7 @@ module Api
     private
 
     def user_params
-      params.require(:user).permit(:gold, :xp, :health)
+      params.require(:user).permit(:gold, :xp, :health, :level)
     end
   end
 end

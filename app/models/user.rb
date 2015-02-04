@@ -8,10 +8,16 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  gold            :integer          default("0")
+#  xp              :integer          default("0")
+#  health          :integer          default("50")
+#  level           :integer          default("1")
+#  max_health      :integer          default("50")
 #
 
 class User < ActiveRecord::Base
   after_initialize :ensure_session_token
+  after_update :level_up, if: :column_level_changed?
 
   attr_reader :password
 
@@ -23,6 +29,11 @@ class User < ActiveRecord::Base
   has_many :dailies
   has_many :todos
   has_many :rewards
+
+  def level_up
+    max_health = 50 + (level * 5)
+    save!
+  end
 
   def password=(password)
     @password = password

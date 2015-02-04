@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204221158) do
+ActiveRecord::Schema.define(version: 20150204225458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20150204221158) do
     t.integer  "gold",            default: 0
     t.integer  "xp",              default: 0
     t.integer  "health",          default: 50
+    t.integer  "level",           default: 1
+    t.integer  "max_health",      default: 50
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree
