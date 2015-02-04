@@ -4,7 +4,6 @@ GamifyApp.Views.HabitIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render)
-    this.$el.attr("id", this.model.id);
   },
 
   events: {
@@ -12,6 +11,7 @@ GamifyApp.Views.HabitIndexItem = Backbone.CompositeView.extend({
   },
 
   render: function(){
+    this.$el.attr("id", this.model.id);
     this.$el.html(this.template({habit: this.model}))
     this.$('.editable').editable("click", this.updateTitle.bind(this))
     return this;
