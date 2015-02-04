@@ -16,12 +16,15 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   render: function(){
     this.$el.html(this.template({name: this.name}))
     this.collection.each(this.addIndexItem)
-    this.$('.task-list').sortable();
+    this.$('.task-list').sortable({
+      placeholder: "task-shadow task list-group-item",
+      forcePlaceholderSize: true
+    });
     return this;
   },
 
   addIndexItem: function(task){
-    taskView = new task.viewClass ({model: task});
+    taskView = new task.viewClass ({model: task, user: this.model});
     this.addSubview("ul", taskView);
   },
 

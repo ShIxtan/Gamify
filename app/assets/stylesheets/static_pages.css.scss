@@ -4,4 +4,30 @@
 
 .task-box {
   float: left;
+  margin: 20px;
+}
+
+.task.task-shadow {
+  background: black;
+  opacity: 0.2;
+}
+
+.task .del {
+  visibility: hidden;
+}
+
+.task.hover .del {
+  visibility: visible;
+}
+
+.check {
+  opacity: 0.3;
+}
+
+.check:hover {
+  opacity: 1.0;
+}
+
+small {
+  float: right;
 }

@@ -1,5 +1,5 @@
 GamifyApp.Views.Navbar = Backbone.CompositeView.extend({
-  template: JST['nav'],
+  template: JST['header/nav'],
   tagName: 'div class="navbar-inner"',
 
   render: function(){

@@ -1,18 +1,28 @@
 GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   template: JST['tasks/indexItem'],
+  tagName: "li class='list-group-item task'",
 
-  initialize: function(){
-    this.listenTo(this.model, "sync", this.render)
+  initialize: function(options){
+    this.listenTo(this.model, "sync", this.render);
+    this.user = options.user;
   },
 
   events: {
-    "click .btn": "deleteTask"
+    "click .del": "deleteTask",
+    "click .check": "checkTask"
   },
 
   render: function(){
     this.$el.attr("id", this.model.id);
     this.$el.html(this.template({model: this.model}))
     this.$('.editable').editable("click", this.updateTitle.bind(this))
+    this.$el.hover(
+      function() {
+        $( this ).addClass( "hover list-group-item-info" );
+      }, function() {
+        $( this ).removeClass( "hover list-group-item-info" );
+      }
+    );
     return this;
   },
 
@@ -25,5 +35,10 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     event.preventDefault()
     this.model.destroy()
     this.remove()
+  },
+
+  checkTask: function(){
+    newGold = this.user.get('gold') + this.gold;
+    this.user.save({gold: newGold});
   }
 })

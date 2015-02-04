@@ -3,11 +3,11 @@ GamifyApp.Views.MainView = Backbone.CompositeView.extend({
 
   render: function(){
     this.$el.html(this.template())
-    var header = new GamifyApp.Views.Header()
-    var habitIndex = new GamifyApp.Views.TaskIndex({name: "habit", collection: this.habits()})
-    var dailyIndex = new GamifyApp.Views.TaskIndex({name: "daily", collection: this.dailies()})
-    var todoIndex = new GamifyApp.Views.TaskIndex({name: "todo", collection: this.todos()})
-    var rewardIndex = new GamifyApp.Views.TaskIndex({name: "reward", collection: this.rewards()})
+    var header = new GamifyApp.Views.Header({model: this.user()})
+    var habitIndex = new GamifyApp.Views.TaskIndex({name: "habit", collection: this.habits(), model: this.user()})
+    var dailyIndex = new GamifyApp.Views.TaskIndex({name: "daily", collection: this.dailies(), model: this.user()})
+    var todoIndex = new GamifyApp.Views.TaskIndex({name: "todo", collection: this.todos(), model: this.user()})
+    var rewardIndex = new GamifyApp.Views.TaskIndex({name: "reward", collection: this.rewards(), model: this.user()})
     this.addSubview(".header", header);
     this.addSubview(".task-lists", habitIndex);
     this.addSubview(".task-lists", dailyIndex);
@@ -50,5 +50,14 @@ GamifyApp.Views.MainView = Backbone.CompositeView.extend({
 
     this._rewards.fetch();
     return this._rewards;
+  },
+
+  user: function(){
+    if (!this._user){
+      this._user = new GamifyApp.Models.User()
+    }
+
+    this._user.fetch();
+    return this._user;
   }
 })
