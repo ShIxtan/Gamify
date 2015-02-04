@@ -2,7 +2,8 @@ GamifyApp.Views.DailyIndexItem = GamifyApp.Views.TaskIndexItem.extend({
   initialize: function(options){
     GamifyApp.Views.TaskIndexItem.prototype.initialize.call(this, options);
     this.gold = 10;
-    this.buttonClass = "glyphicon-ok";
+    this.xp = 1
+    this.buttonClass = "glyphicon-unchecked";
     this.$el.addClass('daily');
     this.isDisabled();
     this.listenTo(this.model, "sync", this.isDisabled);
@@ -15,9 +16,13 @@ GamifyApp.Views.DailyIndexItem = GamifyApp.Views.TaskIndexItem.extend({
 
     if ((yesterday > updatedAt) || (updatedAt.getTime() === createdAt.getTime())){
       this.$el.removeClass("disabled")
+      this.buttonClass = "glyphicon-unchecked"
     } else {
       this.$el.addClass("disabled")
+      this.buttonClass = "glyphicon-ok"
     }
+
+    this.render()
   },
 
   check: function(event){

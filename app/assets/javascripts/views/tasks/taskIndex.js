@@ -31,8 +31,10 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   createTask: function(event){
     event.preventDefault();
     params = this.$('form').serializeJSON();
-    this.$('.task-title').val("");
-    this.collection.create(params);
+    if (params.title){
+      this.$('.task-title').val("");
+      this.collection.create(params);
+    }
   },
 
   updateOrder: function(){

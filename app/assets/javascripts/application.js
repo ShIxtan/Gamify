@@ -15,7 +15,6 @@
 //= require jquery.ui.sortable
 //= require jquery.serializejson
 //= require jquery.editable
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require bootstrap
