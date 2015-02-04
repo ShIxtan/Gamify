@@ -16,6 +16,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     this.$el.attr("id", this.model.id);
     this.$el.html(this.template({model: this.model}))
     this.$('.editable').editable("click", this.updateTitle.bind(this))
+    this.$('.check').addClass(this.buttonClass)
     this.$el.hover(
       function() {
         $( this ).addClass( "hover list-group-item-info" );
