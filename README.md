@@ -33,7 +33,7 @@ before moving on to phase 2.
 
 [Details][phase-one]
 
-### Phase 2: JSON API and Adding Habits from Backbone(~2 days)
+### Phase 2: JSON API and Adding Habits from Backbone(~2 days) -COMPLETE
 I will add API routes to serve habit data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
 phase, I'll have Backbone views to display and edit habits
