@@ -12,6 +12,7 @@ module Api
 
     def update
       daily = Daily.find(params[:id])
+      daily.touch
       if daily.update(daily_params)
         render :json => daily
       else
