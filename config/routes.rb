@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :habits, only: [:create, :destroy, :index, :update]
     resources :dailies, only: [:create, :destroy, :index, :update]
+    resources :todos, only: [:create, :destroy, :update, :index]
   end
 end

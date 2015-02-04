@@ -10,8 +10,8 @@ gamify is a clone of HabitRPG built on Rails and Backbone. Users can:
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] Create/remove habits
-- [ ] Create/remove dailies
-- [ ] Create/remove to-dos
+- [x] Create/remove dailies
+- [x] Create/remove to-dos
 - [ ] Create/remove rewards
 - [ ] Gain XP and Gold for doing habits, dailies, and to-dos
 - [ ] Purchase rewards with gold
@@ -40,7 +40,7 @@ phase, I'll have Backbone views to display and edit habits
 
 [Details][phase-two]
 
-### Phase 3: Dailies and To-dos(~2 days)
+### Phase 3: Dailies and To-dos(~2 days) -COMPLETE
 I will add Rails API routes for dailies and to-dos. After each, I'll add Backbone Models and views to allow adding and removing in their respective lists. At this stage, the three lists will be very similar, but they will be differentiated in the next phase.
 
 [Details][phase-three]

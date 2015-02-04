@@ -3,12 +3,14 @@ GamifyApp.Views.MainView = Backbone.CompositeView.extend({
 
   render: function(){
     this.$el.html(this.template())
-    header = new GamifyApp.Views.Header()
-    habitIndex = new GamifyApp.Views.TaskIndex({name: "habit", collection: this.habits()})
-    dailyIndex = new GamifyApp.Views.TaskIndex({name: "daily", collection: this.dailies()})
+    var header = new GamifyApp.Views.Header()
+    var habitIndex = new GamifyApp.Views.TaskIndex({name: "habit", collection: this.habits()})
+    var dailyIndex = new GamifyApp.Views.TaskIndex({name: "daily", collection: this.dailies()})
+    var todoIndex = new GamifyApp.Views.TaskIndex({name: "todo", collection: this.todos()})
     this.addSubview(".header", header);
     this.addSubview(".task-lists", habitIndex);
-    this.addSubview(".task-lists", dailyIndex)
+    this.addSubview(".task-lists", dailyIndex);
+    this.addSubview(".task-lists", todoIndex);
     return this;
   },
 
@@ -28,5 +30,14 @@ GamifyApp.Views.MainView = Backbone.CompositeView.extend({
 
     this._dailies.fetch();
     return this._dailies;
+  },
+
+  todos: function(){
+    if (!this._todos){
+      this._todos = new GamifyApp.Collections.Todos()
+    }
+
+    this._todos.fetch();
+    return this._todos;
   }
 })
