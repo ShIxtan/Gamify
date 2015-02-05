@@ -60,7 +60,7 @@ I'll update the Rails User model to track gold. Add one more model for Rewards t
 - [x] dailies reduce health if not completed.
 - [ ] popup alert to show updates
 - [x] progress bars for health and xp.
-- [ ] allow "bad habits," that do damage.
+- [x] allow "bad habits," that do damage.
 - [ ] have tasks change color to reflect how often they are done
 - [ ] allow users to choose a "class," which displays a different avatar.
 - [ ] allow users to "friend" each other, show friends' avatar and level.

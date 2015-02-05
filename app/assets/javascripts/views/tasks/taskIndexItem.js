@@ -9,7 +9,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   events: {
     "click .del": "deleteTask",
-    "click .check": "checkTask"
+    "click .check": "checkTask",
+    "click .minus": "doDamage"
   },
 
   render: function(){
@@ -33,14 +34,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   checkTask: function(event){
     if (!this.$el.hasClass("disabled")){
-      var newGold = this.user.get('gold') + this.gold;
-      var newXp = this.user.get('xp') + this.xp;
-      if (newXp > 10){
-        var newLevel = this.user.get('level') + 1;
-      } else {
-        var newLevel = this.user.get('level');
-      }
-      this.user.save({gold: newGold, xp: newXp, level: newLevel});
+      this.user.gainGold(this.gold);
+      this.user.gainXp(this.xp);
       this.check && this.check(event);
     }
   }

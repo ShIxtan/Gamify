@@ -8,10 +8,6 @@ GamifyApp.Views.HabitIndexItem = GamifyApp.Views.TaskIndexItem.extend({
     this.$el.addClass('habit');
   },
 
-  events: {
-    "click .minus": "doDamage"
-  },
-
   render: function(){
     GamifyApp.Views.TaskIndexItem.prototype.render.call(this);
     if (this.model.get("quality") === "gb"){
@@ -24,7 +20,6 @@ GamifyApp.Views.HabitIndexItem = GamifyApp.Views.TaskIndexItem.extend({
   },
 
   doDamage: function(){
-    health = this.user.get("health") - this.damage;
-    this.user.save({health: health});
+    this.user.damage(this.damage);
   }
 })

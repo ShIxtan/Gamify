@@ -42,8 +42,7 @@ GamifyApp.Views.DailyIndexItem = GamifyApp.Views.TaskIndexItem.extend({
 
     if ((yesterday > lastChecked) || (!lastChecked && (createdAt < midnight))){
       this.model.save({"last_checked": new Date()});
-      health = this.user.get("health") - this.damage;
-      this.user.save({health: health});
+      this.user.damage(this.damage);
     }
   },
 
