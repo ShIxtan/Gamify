@@ -40,3 +40,37 @@
 .task-lists {
   float: left;
 }
+
+.popups {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  list-style-type: none;
+  width: 200px;
+}
+
+.popup {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  width: 100%;
+  box-shadow: 3px 3px 2px #eee;
+  opacity: .8;
+}
+
+.popup.gold {
+  background: #f0ad4e;
+}
+
+.popup.health {
+  background: #d9534f;
+}
+
+.popup.xp {
+  background: #D65CAD;
+}
+
+.popup.level {
+  background: #29A329;
+}

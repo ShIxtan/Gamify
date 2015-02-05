@@ -61,16 +61,16 @@ I'll update the Rails User model to track gold. Add one more model for Rewards t
 - [x] popup alert to show updates
 - [x] progress bars for health and xp.
 - [x] allow "bad habits," that do damage.
-- [ ] have tasks change color to reflect how often they are done
-- [ ] allow users to choose a "class," which displays a different avatar.
-- [ ] allow users to "friend" each other, show friends' avatar and level.
-- [ ] add default "equipment" the the rewards list that does things like increasing gold.
-- [ ] create modal boxes that allow displaying and editing descriptions of tasks.
-- [ ] give random "items" as rewards along with xp and gold.
 - [ ] allow adding tags to tasks, as well as displaying only tasks with a tag
+- [ ] create accordion boxes that allow displaying and editing descriptions of tasks.
+- [ ] have tasks change color to reflect how often they are done
 - [ ] allow changing the difficulty of a task, modifying it's rewards.
+- [ ] give random "items" as rewards along with xp and gold.
+- [ ] allow users to choose a "class," which displays a different avatar.
+- [ ] add default "equipment" the the rewards list that does things like increasing gold.
 - [ ] allow adding emojis to task titles.
 - [ ] display purchased equipment on the user's avatar.
+- [ ] allow users to "friend" each other, show friends' avatar and level.
 
 
 [phase-one]: ./docs/phases/phase1.md

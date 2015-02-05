@@ -1,6 +1,6 @@
 GamifyApp.Views.StatPopup = Backbone.CompositeView.extend({
   template: JST['header/statPopup'],
-  tagname: "li",
+  tagName: "li class='popup'",
 
   initialize: function(options){
     this.value = options.value;
@@ -10,6 +10,7 @@ GamifyApp.Views.StatPopup = Backbone.CompositeView.extend({
   render: function(){
     this.$el.html(this.template({value: this.value, stat: this.stat}))
     var that = this
+    this.$el.addClass(this.stat)
     setTimeout(function(){
       that.remove();
     }, 10000);
