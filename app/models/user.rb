@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   has_many :rewards
 
   def level_up
-    if max_health < (45 + (level * 5))
+    if !max_health || max_health < (45 + (level * 5))
       self.max_health = 45 + (level * 5)
       self.health = max_health
       self.xp = 0
