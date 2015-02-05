@@ -2,8 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.task-box {
-}
+
 .details {
   float: left;
 }
@@ -26,15 +25,15 @@
   visibility: hidden;
 }
 
-.task.hover .del {
+.task:hover .del {
   visibility: visible;
 }
 
-.check {
+.check, .minus {
   opacity: 0.3;
 }
 
-.check:hover {
+.check:hover, .minus:hover {
   opacity: 1.0;
 }
 
