@@ -1,4 +1,4 @@
-<div class="details">
+<div class="details col-md-2">
   <%= user.get("username") %>
   <small>
     Level <%= user.get("level") %>
@@ -6,7 +6,7 @@
   </small>
 </div>
 
-<div class="bars">
+<div class="bars col-md-4">
   <div class="progress">
     <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<%= user.get("health") %>" aria-valuemin="0" aria-valuemax="<%= user.get("max_health") %>" style="width: <%= user.get("health")/user.get("max_health")*100 %>%">
       <span class="sr-only"></span>

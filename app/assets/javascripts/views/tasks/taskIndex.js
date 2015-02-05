@@ -1,6 +1,6 @@
 GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   template: JST['tasks/index'],
-  tagName: "div class='task-box'",
+  tagName: "div class='task-box col-md-3'",
 
   initialize: function(options){
     this.name = options.name;
