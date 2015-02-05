@@ -10,22 +10,48 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   events: {
     "submit": "createTask",
     "click .add": "createTask",
-    "sortstop": "updateOrder"
+    "sortstop": "updateOrder",
+    "sortstop": "refreshAccordion",
+    "mouseenter .edit": "onAccordion",
+    "mouseleave .edit": "offAccordion"
   },
 
   render: function(){
     this.$el.html(this.template({name: this.name}))
     this.collection.each(this.addIndexItem)
-    this.$('.task-list').sortable({
+    this.$('.task-list').accordion({
+      active: false,
+      collapsible: true,
+      header: "> li > .item",
+      disabled: true
+    }).sortable({
+      handle: ".item",
       placeholder: "task-shadow task list-group-item",
       forcePlaceholderSize: true
     });
     return this;
   },
 
+  onAccordion: function(){
+    this.$('.task-list').accordion( "enable" );
+  },
+
+  offAccordion: function(){
+    this.$('.task-list').accordion( "disable" );
+  },
+
+  refreshAccordion: function(event, ui){
+    // IE doesn't register the blur when sorting
+    // so trigger focusout handlers to remove .ui-state-focus
+    ui.item.children( "h3" ).triggerHandler( "focusout" );
+     // Refresh accordion to handle new order
+    this.$('.task-list').accordion( "refresh" );
+  },
+
   addIndexItem: function(task){
     taskView = new task.viewClass ({model: task, user: this.model});
     this.addSubview("ul", taskView);
+    this.$('.task-list').accordion( "refresh" );
   },
 
   createTask: function(event){

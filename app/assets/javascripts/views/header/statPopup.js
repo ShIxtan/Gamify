@@ -7,13 +7,17 @@ GamifyApp.Views.StatPopup = Backbone.CompositeView.extend({
     this.stat = options.stat;
   },
 
+  events: {
+    "click": "remove"
+  },
+
   render: function(){
     this.$el.html(this.template({value: this.value, stat: this.stat}))
     var that = this
     this.$el.addClass(this.stat)
     setTimeout(function(){
       that.remove();
-    }, 10000);
+    }, 6000);
     return this
   }
 })

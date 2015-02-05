@@ -21,12 +21,14 @@
   cursor: move;
 }
 
-.task .del {
+.task .edit {
   visibility: hidden;
 }
 
-.task:hover .del {
+.task:hover .edit {
   visibility: visible;
+  cursor: pointer;
+  float: right;
 }
 
 .check, .minus {
@@ -47,6 +49,7 @@
   right: 30px;
   list-style-type: none;
   width: 200px;
+  z-index: 20;
 }
 
 .popup {
