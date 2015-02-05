@@ -7,6 +7,14 @@
   margin: 20px;
   width: 250px;
 }
+.details {
+  float: left;
+}
+
+.bars {
+  width: 200px;
+  float: left;
+}
 
 .task.task-shadow {
   background: black;
@@ -33,7 +41,6 @@
   opacity: 1.0;
 }
 
-small ul{
-  list-style-type: none;
-  float: right;
+.task-lists {
+  float: left;
 }

@@ -1,9 +1,20 @@
-<%= user.get("username") %>
-<small>
-  Level <%= user.get("level") %>
-  <ul>
-    <li><%= user.get("gold") %> Gold</li>
-    <li><%= user.get("xp") %> XP</li>
-    <li><%= user.get("health") %> Health</li>
-  </ul>
-</small>
+<div class="details">
+  <%= user.get("username") %>
+  <small>
+    Level <%= user.get("level") %>
+    Gold <%= user.get("gold") %>
+  </small>
+</div>
+
+<div class="bars">
+  <div class="progress">
+    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<%= user.get("health") %>" aria-valuemin="0" aria-valuemax="<%= user.get("max_health") %>" style="width: <%= user.get("health")/user.get("max_health")*100 %>%">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+  <div class="progress">
+    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<%= user.get("xp") %>" aria-valuemin="0" aria-valuemax="<%= user.get("xp") %>" style="width: <%= user.get("xp")/10*100 %>%">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+</div>
