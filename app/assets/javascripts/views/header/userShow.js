@@ -3,7 +3,7 @@ GamifyApp.Views.UserShow = Backbone.CompositeView.extend({
   tagName: "h1",
 
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync", this.render);
   },
 
   render: function(){

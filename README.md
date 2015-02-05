@@ -58,7 +58,7 @@ I'll update the Rails User model to track gold. Add one more model for Rewards t
 - [x] allow user to "level up" by gaining experience points
 - [x] track user's health and have them "die" (go back to level one)
 - [x] dailies reduce health if not completed.
-- [ ] popup alert to show updates
+- [x] popup alert to show updates
 - [x] progress bars for health and xp.
 - [x] allow "bad habits," that do damage.
 - [ ] have tasks change color to reflect how often they are done

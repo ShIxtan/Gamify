@@ -1,10 +1,16 @@
 GamifyApp.Models.User = Backbone.Model.extend({
   urlRoot: "api/users",
 
-  updateStat: function(stat, value, callback){
-    newStat = this.get(stat) + value;
+  updateStat: function(stat, value){
+    var newStat = this.get(stat) + value;
     this.set(stat, newStat);
-    this.save({}, {success: callback});
+    var that = this;
+
+    this.save({}, {
+      success: function(){
+        that.trigger("updateStat", stat, value);
+      }
+    });
   },
 
   damage: function(value){
