@@ -13,7 +13,8 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     "sortstop": "updateOrder",
     "sortstop": "refreshAccordion",
     "mouseenter .edit": "onAccordion",
-    "mouseleave .edit": "offAccordion"
+    "mouseleave .edit": "offAccordion",
+    "refresh li": "refreshAccordion"
   },
 
   render: function(){
@@ -41,9 +42,9 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   },
 
   refreshAccordion: function(event, ui){
-    // IE doesn't register the blur when sorting
-    // so trigger focusout handlers to remove .ui-state-focus
-    ui.item.children( "h3" ).triggerHandler( "focusout" );
+    // // IE doesn't register the blur when sorting
+    // // so trigger focusout handlers to remove .ui-state-focus
+    // ui.item.children( "h3" ).triggerHandler( "focusout" );
      // Refresh accordion to handle new order
     this.$('.task-list').accordion( "refresh" );
   },
@@ -65,6 +66,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
 
   updateOrder: function(){
     var sortedIds = this.$(".task-list").sortable("toArray")
+    var that = this;
 
     this.collection.each(function(task){
       var rank = sortedIds.indexOf(task.id.toString())
