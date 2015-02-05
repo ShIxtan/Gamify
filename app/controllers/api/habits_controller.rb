@@ -32,7 +32,7 @@ module Api
     private
 
     def habit_params
-      params.require(:habit).permit(:title, :rank, :quality)
+      params.require(:habit).permit(:title, :rank, :quality, :description)
     end
   end
 end

@@ -32,7 +32,7 @@ module Api
     private
 
     def reward_params
-      params.require(:reward).permit(:title, :rank)
+      params.require(:reward).permit(:title, :rank, :description)
     end
   end
 end
