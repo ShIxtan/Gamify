@@ -15,7 +15,9 @@ GamifyApp.Views.Header = Backbone.CompositeView.extend({
   },
 
   popup: function(stat, value){
-    var popup = new GamifyApp.Views.StatPopup({value: value, stat: stat});
-    this.addSubview(".popups", popup);
+    if (value){
+      var popup = new GamifyApp.Views.StatPopup({value: value, stat: stat});
+      this.addSubview(".popups", popup);
+    }
   }
 })
