@@ -33,7 +33,7 @@ module Api
     private
 
     def daily_params
-      params.require(:daily).permit(:title, :rank)
+      params.require(:daily).permit(:title, :rank, :last_checked)
     end
   end
 end

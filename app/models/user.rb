@@ -17,7 +17,8 @@
 
 class User < ActiveRecord::Base
   after_initialize :ensure_session_token
-  after_update :level_up
+  after_update :maybe_level_up
+  after_update :maybe_die
 
   attr_reader :password
 
@@ -30,11 +31,22 @@ class User < ActiveRecord::Base
   has_many :todos
   has_many :rewards
 
-  def level_up
+  def maybe_level_up
     if !max_health || max_health < (45 + (level * 5))
       self.max_health = 45 + (level * 5)
       self.health = max_health
       self.xp = 0
+      save!
+    end
+  end
+
+  def maybe_die
+    if !!health && health <= 0
+      self.level = 1
+      self.max_health = 50
+      self.health = max_health
+      self.xp = 0
+      self.gold = 0
       save!
     end
   end
