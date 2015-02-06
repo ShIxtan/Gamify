@@ -2,10 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.stat-icon {
+  float: left;
+  padding-right: 5px;
+  font-size: 14px;
+}
+
+.stat-icon.health {
+  color: #d9534f;
+}
+
+.stat-icon.xp {
+  color: #f0ad4e;
+}
 
 .details, .details small {
   float: left;
   color: #66FF99;
+}
+
+.btn.add {
+  margin-top: -1px;
 }
 .checks > span{
   opacity: 0.3;
@@ -15,7 +32,7 @@
   padding: 5px;
   vertical-align: middle;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 18px;
 }
 .checks {
   float: left;

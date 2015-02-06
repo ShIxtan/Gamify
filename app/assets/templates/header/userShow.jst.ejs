@@ -7,11 +7,14 @@
 </div>
 
 <div class="bars col-md-4">
+  <span class="stat-icon health glyphicon glyphicon-heart"></span>
   <div class="progress">
     <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<%= user.get("health") %>" aria-valuemin="0" aria-valuemax="<%= user.get("max_health") %>" style="width: <%= user.get("health")/user.get("max_health")*100 %>%">
       <span class="sr-only"></span>
     </div>
   </div>
+
+  <span class="stat-icon xp glyphicon glyphicon-star-empty"></span>
   <div class="progress">
     <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<%= user.get("xp") %>" aria-valuemin="0" aria-valuemax="<%= user.get("xp") %>" style="width: <%= user.get("xp")/10*100 %>%">
       <span class="sr-only"></span>
