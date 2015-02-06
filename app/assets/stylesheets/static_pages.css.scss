@@ -83,6 +83,10 @@
   cursor: pointer;
 }
 
+body {
+  background-image: asset-data-url("bg.jpg")
+}
+
 body.main {
   background-image: none;
 }
