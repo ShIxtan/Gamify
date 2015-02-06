@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to new_session_url unless current_user
+    redirect_to new_user_url unless current_user
   end
 
   def login!(user)

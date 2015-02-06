@@ -1,7 +1,11 @@
 <div class="item" data-toggle="tooltip" data-placement="top" title="<%= model.get('description') %>">
-  <span class="check btn glyphicon"></span>
-  <span class="minus btn glyphicon glyphicon-minus hide"></span>
-  <span class="editable"><%= model.get('title') %></span>
+  <span class="checks">
+    <span class="check glyphicon"></span>
+    <span class="minus glyphicon glyphicon-minus hide"></span>
+  </span>
+  <span class="title">
+    <span class="editable"><%= model.get('title') %></span>
+  </span>
   <span class="edit glyphicon glyphicon-pencil"></span>
 </div>
 

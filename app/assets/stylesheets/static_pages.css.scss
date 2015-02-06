@@ -8,6 +8,27 @@
   color: #66FF99;
 }
 
+.checks > span{
+  opacity: 0.3;
+  float: left;
+  border: 1px solid #eee;
+  padding: 5px;
+}
+.checks {
+  float: left;
+  height: 100%;
+  width: 25px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.item {
+  height: 30px;
+}
+.checks > *:hover {
+  opacity: 1.0;
+}
+
 .bars {
   width: 200px;
   float: left;
@@ -44,14 +65,6 @@
   visibility: visible;
   cursor: pointer;
   float: right;
-}
-
-.check, .minus {
-  opacity: 0.3;
-}
-
-.check:hover, .minus:hover {
-  opacity: 1.0;
 }
 
 .task-lists {
