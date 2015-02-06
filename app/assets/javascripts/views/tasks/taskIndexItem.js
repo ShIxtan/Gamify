@@ -20,10 +20,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     this.$('.editable').editable("click", this.updateTitle.bind(this));
     this.$('.check').addClass(this.buttonClass);
     this.$el.trigger("refresh");
-    this.$('.item').tooltip({
-      container: ".editable",
-      delay: { "show": 500, "hide": 100 }
-    });
+    this.$('[data-toggle="tooltip"]').tooltip({delay: { "show": 500, "hide": 100 }});
     return this;
   },
 
