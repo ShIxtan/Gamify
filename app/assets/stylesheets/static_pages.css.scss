@@ -7,26 +7,45 @@
   float: left;
   color: #66FF99;
 }
-
 .checks > span{
   opacity: 0.3;
-  float: left;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
+  height: 100%;
+  width: 100%;
   padding: 5px;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 20px;
 }
 .checks {
   float: left;
-  height: 100%;
-  width: 25px;
+  height: 51px;
+  width: 51px;
   position: relative;
   top: 0;
   left: 0;
+  cursor: pointer;
+  margin-top: -12px;
+  margin-left: -15px;
+}
+.checks > *:hover {
+  opacity: 1.0;
+  background: rgba(100,100,100,.5);
+}
+.checks > span.habit {
+  height: 50%;
+  padding-top: 5px;
+}
+.checks > span.minus {
+  height: 50%;
+  padding-top: 5px;
 }
 .item {
   height: 30px;
 }
-.checks > *:hover {
-  opacity: 1.0;
+
+.title {
+  padding-left: 10px;
 }
 
 .bars {

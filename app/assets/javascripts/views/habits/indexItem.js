@@ -4,7 +4,7 @@ GamifyApp.Views.HabitIndexItem = GamifyApp.Views.TaskIndexItem.extend({
     this.gold = 5;
     this.xp = 1;
     this.damage = 5;
-    this.buttonClass = "glyphicon-plus";
+    this.buttonClass = "habit glyphicon-plus";
     this.$el.addClass('habit');
   },
 
