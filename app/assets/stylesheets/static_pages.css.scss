@@ -14,13 +14,13 @@
 }
 
 .task-box {
-    padding: 5px;
+  padding: 5px;
 }
 
 .task-box .inner {
-    background-color: #eee;
-    border-radius: 3px;
-    padding: 10px;
+  background-color: #eee;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 .task-box h1 {
@@ -71,26 +71,24 @@
   padding: 5px;
   margin: 5px;
   border-radius: 3px;
-  border: 1px solid #eee;
   width: 100%;
-  box-shadow: 3px 3px 2px #eee;
-  opacity: .8;
+  box-shadow: 1px 1px 1px rgba(34, 36, 34, 0.4);
 }
 
 .popup.gold {
-  background: #f0ad4e;
+  background: rgba(194, 194, 30, 0.8);
 }
 
 .popup.health {
-  background: #d9534f;
+  background: rgba(221, 64, 64, 0.8);
 }
 
 .popup.xp {
-  background: #D65CAD;
+  background: rgba(130, 66, 193, 0.8);
 }
 
 .popup.level {
-  background: #29A329;
+  background: rgba(23, 149, 23, 0.8);
 }
 
 .icons > * {
