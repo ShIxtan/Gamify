@@ -3,13 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.details {
+.details, .details small {
   float: left;
+  color: #66FF99;
 }
 
 .bars {
   width: 200px;
   float: left;
+}
+
+.task-box {
+    padding: 5px;
+}
+
+.task-box .inner {
+    background-color: #eee;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.task-box h1 {
+  margin-top: 5px;
 }
 
 .task.task-shadow {
@@ -85,10 +100,6 @@
 
 body {
   background-image: asset-data-url("bg.jpg")
-}
-
-body.main {
-  background-image: none;
 }
 
 .form {
