@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205222037) do
+ActiveRecord::Schema.define(version: 20150206185014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 20150205222037) do
   end
 
   add_index "rewards", ["user_id"], name: "index_rewards_on_user_id", using: :btree
+
+  create_table "task_clicks", force: true do |t|
+    t.string   "clickable_type",             null: false
+    t.integer  "clickable_id",               null: false
+    t.integer  "sign",           default: 1
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "task_clicks", ["clickable_id"], name: "index_task_clicks_on_clickable_id", using: :btree
 
   create_table "todos", force: true do |t|
     t.text     "title",       null: false

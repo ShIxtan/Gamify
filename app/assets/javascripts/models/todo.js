@@ -1,4 +1,4 @@
-GamifyApp.Models.Todo = Backbone.Model.extend({
+GamifyApp.Models.Todo = GamifyApp.Models.Task.extend({
   urlRoot: "api/todos",
 
   initialize: function(){

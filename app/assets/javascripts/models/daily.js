@@ -1,4 +1,4 @@
-GamifyApp.Models.Daily = Backbone.Model.extend({
+GamifyApp.Models.Daily = GamifyApp.Models.Task.extend({
   urlRoot: "api/dailies",
 
   initialize: function(){

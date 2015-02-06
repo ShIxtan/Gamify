@@ -1,5 +1,15 @@
 module Api
   class RewardsController < ApiController
+    def click
+      reward = Reward.find(params[:id])
+      task_click = reward.task_clicks.new({sign: params[:sign]})
+      if task_click.save
+        render :json => task_click
+      else
+        render :json => { error: "invalid url" }, status: :unprocessable_entity
+      end
+    end
+
     def create
       reward = Reward.new(reward_params)
       reward.user_id = current_user.id

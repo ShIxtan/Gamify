@@ -1,4 +1,4 @@
-GamifyApp.Models.Reward = Backbone.Model.extend({
+GamifyApp.Models.Reward = GamifyApp.Models.Task.extend({
   urlRoot: "api/rewards",
 
   initialize: function(){

@@ -13,4 +13,5 @@ class Habit < ActiveRecord::Base
   validates :title, :user_id, presence: true
 
   belongs_to :user
+  has_many :task_clicks, as: :clickable
 end

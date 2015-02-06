@@ -1,5 +1,15 @@
 module Api
   class HabitsController < ApiController
+    def click
+      habit = Habit.find(params[:id])
+      task_click = habit.task_clicks.new({sign: params[:sign]})
+      if task_click.save
+        render :json => task_click
+      else
+        render :json => { error: "invalid url" }, status: :unprocessable_entity
+      end
+    end
+
     def create
       habit = Habit.new(habit_params)
       habit.user_id = current_user.id

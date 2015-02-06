@@ -12,4 +12,9 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :update]
     resource :users, only: [:show]
   end
+
+  post 'api/habits/:id/click', to: "api/habits#click"
+  post 'api/dailies/:id/click', to: "api/dailies#click"
+  post 'api/todos/:id/click', to: "api/todos#click"
+  post 'api/rewards/:id/click', to: "api/rewards#click"
 end
