@@ -17,6 +17,7 @@ class Todo < ActiveRecord::Base
 
   belongs_to :user
   has_many :task_clicks, as: :clickable
+  has_many :taggings, as: :taggable
 
   def days_since_created
     (Time.now - self.created_at) / 86400
