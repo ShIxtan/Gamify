@@ -31,13 +31,14 @@
 
 .checks > span{
   opacity: 0.3;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
   height: 100%;
   width: 100%;
   padding: 5px;
   vertical-align: middle;
   text-align: center;
   padding-top: 18px;
+  background: rgba(100,100,100,.2)
 }
 .checks {
   float: left;
@@ -52,7 +53,7 @@
 }
 .checks > *:hover {
   opacity: 1.0;
-  background: rgba(100,100,100,.5);
+  background: rgba(100,100,100,.2);
 }
 .checks > span.habit {
   height: 50%;
@@ -171,5 +172,5 @@ body {
 }
 
 li.list-group-item-primary {
-  background: #8DB3C2;
+  background: #B6D6E3;
 }
