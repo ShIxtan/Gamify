@@ -5,6 +5,7 @@ module Api
       task_click = daily.task_clicks.new({sign: params[:sign]})
       if task_click.save
         render :json => task_click
+        daily.update_strength
       else
         render :json => { error: "invalid url" }, status: :unprocessable_entity
       end
@@ -40,10 +41,14 @@ module Api
       render json: current_user.dailies.order(:rank)
     end
 
+    def show
+      render json: Daily.find(params[:id])
+    end
+
     private
 
     def daily_params
-      params.require(:daily).permit(:title, :rank, :last_checked, :description)
+      params.require(:daily).permit(:title, :rank, :last_checked, :description, :strength)
     end
   end
 end

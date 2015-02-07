@@ -4,7 +4,7 @@ module Api
       habit = Habit.find(params[:id])
       task_click = habit.task_clicks.new({sign: params[:sign]})
       if task_click.save
-        render :json => task_click
+        render :json => habit.update_strength
       else
         render :json => { error: "invalid url" }, status: :unprocessable_entity
       end
@@ -39,10 +39,14 @@ module Api
       render json: current_user.habits.order(:rank)
     end
 
+    def show
+      render json: Habit.find(params[:id])
+    end
+
     private
 
     def habit_params
-      params.require(:habit).permit(:title, :rank, :quality, :description)
+      params.require(:habit).permit(:title, :rank, :quality, :description, :sign)
     end
   end
 end

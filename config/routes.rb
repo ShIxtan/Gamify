@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy, :show]
 
   namespace :api, defaults: { format: :json } do
-    resources :habits, only: [:create, :destroy, :index, :update]
-    resources :dailies, only: [:create, :destroy, :index, :update]
-    resources :todos, only: [:create, :destroy, :update, :index]
-    resources :rewards, only: [:create, :destroy, :update, :index]
+    resources :habits, only: [:create, :destroy, :index, :update, :show]
+    resources :dailies, only: [:create, :destroy, :index, :update, :show]
+    resources :todos, only: [:create, :destroy, :update, :index, :show]
+    resources :rewards, only: [:create, :destroy, :update, :index, :show]
     resources :users, only: [:show, :update]
     resource :users, only: [:show]
   end

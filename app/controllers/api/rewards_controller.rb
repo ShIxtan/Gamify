@@ -39,6 +39,10 @@ module Api
       render json: current_user.rewards.order(:rank)
     end
 
+    def show
+      render json: Reward.find(params[:id])
+    end
+
     private
 
     def reward_params

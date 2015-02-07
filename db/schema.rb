@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206185014) do
+ActiveRecord::Schema.define(version: 20150206212520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dailies", force: true do |t|
-    t.text     "title",        null: false
+    t.text     "title",                    null: false
     t.integer  "rank"
-    t.integer  "user_id",      null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "user_id",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.datetime "last_checked"
     t.string   "description"
+    t.integer  "strength",     default: 3
   end
 
   add_index "dailies", ["user_id"], name: "index_dailies_on_user_id", using: :btree
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150206185014) do
     t.integer  "rank"
     t.string   "quality",     default: "gb"
     t.string   "description"
+    t.integer  "strength",    default: 3
   end
 
   add_index "habits", ["user_id"], name: "index_habits_on_user_id", using: :btree
@@ -62,12 +64,13 @@ ActiveRecord::Schema.define(version: 20150206185014) do
   add_index "task_clicks", ["clickable_id"], name: "index_task_clicks_on_clickable_id", using: :btree
 
   create_table "todos", force: true do |t|
-    t.text     "title",       null: false
-    t.integer  "user_id",     null: false
+    t.text     "title",                   null: false
+    t.integer  "user_id",                 null: false
     t.integer  "rank"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "description"
+    t.integer  "strength",    default: 3
   end
 
   create_table "users", force: true do |t|

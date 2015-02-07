@@ -36,7 +36,20 @@ module Api
     end
 
     def index
+      current_user.todos.each do |todo|
+        if todo.days_since_created > 4
+          todo.strength = 1
+          todo.save
+        elsif todo.days_since_created > 2
+          todo.strength = 2
+          todo.save
+        end
+      end
       render json: current_user.todos.order(:rank)
+    end
+
+    def show
+      render json: Todo.find(params[:id])
     end
 
     private

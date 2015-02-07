@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.edit-box {
+  padding-top: 30px;
+}
+
 .stat-icon {
   float: left;
   padding-right: 5px;
@@ -93,6 +97,7 @@
 
 .task {
   cursor: move;
+  margin-top: 5px;
 }
 
 .task .edit {
@@ -163,4 +168,8 @@ body {
   width: 400px;
   padding: 20px;
   color: #66FF99;
+}
+
+li.list-group-item-primary {
+  background: #8DB3C2;
 }
