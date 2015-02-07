@@ -11,7 +11,6 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     "submit": "createTask",
     "click .add": "createTask",
     "sortstop": "updateOrder",
-    "sortstop": "refreshAccordion",
     "mouseenter .edit": "onAccordion",
     "mouseleave .edit": "offAccordion",
     "refresh li": "refreshAccordion"
@@ -69,5 +68,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
       task.set({rank: rank});
       task.save();
     });
+
+    this.refreshAccordion();
   }
 });

@@ -62,9 +62,9 @@ I'll update the Rails User model to track gold. Add one more model for Rewards t
 - [x] progress bars for health and xp.
 - [x] allow "bad habits," that do damage.
 - [x] create accordion boxes that allow displaying and editing descriptions of tasks.
-- [x] tooltips on hover that display task description
-- [ ] allow adding tags to tasks, as well as displaying only tasks with a tag
 - [x] have tasks change color to reflect how often they are done
+- [ ] tooltips on hover that display task description
+- [ ] allow adding tags to tasks, as well as displaying only tasks with a tag
 - [ ] allow changing the difficulty of a task, modifying it's rewards.
 - [ ] give random backgrounds as rewards along with xp and gold.
 - [ ] allow users to choose a "class," which displays a different avatar.
