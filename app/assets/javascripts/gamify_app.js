@@ -3,8 +3,13 @@ window.GamifyApp = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    new GamifyApp.Routers.Router({$rootEl: $('body')})
-    Backbone.history.start()
+  initialize: function(id) {
+    var user = new GamifyApp.Models.User({id: id})
+    user.fetch({
+      success: function(){
+        new GamifyApp.Routers.Router({$rootEl: $('body'), model: user})
+        Backbone.history.start()
+      }
+    })
   }
 };

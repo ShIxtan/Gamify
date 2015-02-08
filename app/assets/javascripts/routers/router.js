@@ -1,6 +1,7 @@
 GamifyApp.Routers.Router = Backbone.Router.extend({
   initialize: function(options){
     this.$rootEl = options.$rootEl
+    this.model = options.model
   },
 
   routes: {
@@ -8,7 +9,7 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
   },
 
   mainView: function(){
-    this._mainView = new GamifyApp.Views.MainView();
+    this._mainView = new GamifyApp.Views.MainView({model: this.model});
     this.$rootEl.addClass("main")
     this.$rootEl.html(this._mainView.render().$el);
   }

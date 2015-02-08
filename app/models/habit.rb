@@ -19,6 +19,7 @@ class Habit < ActiveRecord::Base
   belongs_to :user
   has_many :task_clicks, as: :clickable
   has_many :taggings, as: :taggable
+  has_many :tags, through: :taggings
 
   def update_strength
     per_day = self.clicks_per_day

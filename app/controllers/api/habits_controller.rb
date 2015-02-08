@@ -36,7 +36,8 @@ module Api
     end
 
     def index
-      render json: current_user.habits.order(:rank)
+      @habits = current_user.habits.order(:rank).includes(:tags)
+      render :index
     end
 
     def show

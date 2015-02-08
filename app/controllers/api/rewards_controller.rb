@@ -36,7 +36,8 @@ module Api
     end
 
     def index
-      render json: current_user.rewards.order(:rank)
+      @rewards = current_user.rewards.order(:rank).includes(:tags)
+      render :index
     end
 
     def show

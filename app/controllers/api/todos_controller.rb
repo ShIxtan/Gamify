@@ -45,7 +45,9 @@ module Api
           todo.save
         end
       end
-      render json: current_user.todos.order(:rank)
+
+      @todos = current_user.todos.order(:rank).includes(:tags)
+      render :index
     end
 
     def show

@@ -38,7 +38,8 @@ module Api
     end
 
     def index
-      render json: current_user.dailies.order(:rank)
+      @dailies = current_user.dailies.order(:rank).includes(:tags)
+      render :index
     end
 
     def show

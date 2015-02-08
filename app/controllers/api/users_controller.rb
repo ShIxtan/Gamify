@@ -1,15 +1,17 @@
 module Api
   class UsersController < ApiController
     def update
-      if current_user.update_attributes(user_params)
-        render json: current_user
+      @user = User.includes(:tags, :dailies, :habits, :rewards, :todos).find(params[:id])
+      if @user.update_attributes(user_params)
+        render :show
       else
         render json: current_user.errors
       end
     end
 
     def show
-      render json: current_user
+      @user = User.includes(:tags, :dailies, :habits, :rewards, :todos).find(params[:id])
+      render :show
     end
 
     private

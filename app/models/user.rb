@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   has_many :dailies
   has_many :todos
   has_many :rewards
+  has_many :tags
 
   def maybe_level_up
     if !max_health || max_health < (45 + (level * 5))
