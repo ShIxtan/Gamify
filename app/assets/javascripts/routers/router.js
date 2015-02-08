@@ -12,5 +12,6 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     this._mainView = new GamifyApp.Views.MainView({model: this.model});
     this.$rootEl.addClass("main")
     this.$rootEl.html(this._mainView.render().$el);
+    this._mainView.afterRender();
   }
 });
