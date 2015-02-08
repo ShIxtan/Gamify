@@ -3,7 +3,6 @@ Backbone.CompositeView = Backbone.View.extend({
     this.subviews(selector).push(subview);
     // Try to attach the subview. Render it as a convenience.
     this.attachSubview(selector, subview.render());
-    subview.afterRender()
   },
 
   attachSubview: function (selector, subview) {
@@ -18,8 +17,8 @@ Backbone.CompositeView = Backbone.View.extend({
   },
 
   afterRender: function () {
-   _(this.subviews()).each(function (subviews) {
-     _(subviews).each(function (subview) {
+   this.subviews().each(function (subviews) {
+     subviews.each(function (subview) {
        subview.afterRender && subview.afterRender();
      });
    });
@@ -38,9 +37,9 @@ Backbone.CompositeView = Backbone.View.extend({
     // relevant points in the parent CompositeView.
 
     var view = this;
-    _(this.subviews()).each(function (subviews, selector) {
+    this.subviews().each(function (subviews, selector) {
       view.$(selector).empty();
-      _(subviews).each(function (subview) {
+      subviews.each(function (subview) {
         view.attachSubview(selector, subview);
       });
     });
@@ -48,8 +47,8 @@ Backbone.CompositeView = Backbone.View.extend({
 
   remove: function () {
     Backbone.View.prototype.remove.call(this);
-    _(this.subviews()).each(function (subviews) {
-      _(subviews).each(function (subview) {
+    this.subviews().each(function (subviews) {
+      subviews.each(function (subview) {
         subview.remove();
       });
     });
@@ -69,9 +68,9 @@ Backbone.CompositeView = Backbone.View.extend({
     this._subviews = this._subviews || {};
 
     if (!selector) {
-      return this._subviews;
+      return _(this._subviews);
     } else {
-      this._subviews[selector] = this._subviews[selector] || [];
+      this._subviews[selector] = this._subviews[selector] || _([]);
       return this._subviews[selector];
     }
   }

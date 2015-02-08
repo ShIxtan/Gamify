@@ -64,10 +64,10 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   checkTask: function(event){
     if (!this.$el.hasClass("disabled")){
+      this.check && this.check(event);
       this.user.gainGold(this.gold);
       this.user.gainXp(this.xp);
       this.model.click({sign: 1})
-      this.check && this.check(event);
     }
   }
 })

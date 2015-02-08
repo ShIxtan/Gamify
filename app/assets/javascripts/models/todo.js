@@ -3,5 +3,9 @@ GamifyApp.Models.Todo = GamifyApp.Models.Task.extend({
 
   initialize: function(){
     this.viewClass = GamifyApp.Views.TodoIndexItem;
+  },
+
+  click: function(){
+    //override default click to prevent failed ajax
   }
 });
