@@ -1,5 +1,5 @@
 <div class="details col-md-2">
-  <%= user.get("username") %>
+  <%= user.escape("username") %>
   <small>
     Level <%= user.get("level") %>
     Gold <%= user.get("gold") %>

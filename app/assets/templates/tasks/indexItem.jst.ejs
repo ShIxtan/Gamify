@@ -4,7 +4,7 @@
     <span class="minus glyphicon glyphicon-minus hide"></span>
   </span>
   <span class="title">
-    <span class="editable"><%= model.get('title') %></span>
+    <span class="editable"><%= model.escape('title') %></span>
   </span>
   <span class="edit glyphicon glyphicon-pencil"></span>
 </div>
@@ -16,6 +16,6 @@
   </div>
 
   <div class="options">
-    <input type="text" class="description" value="<%= model.get('description') %>" placeholder="description">
+    <input type="text" class="description" value="<%= model.escape('description') %>" placeholder="description">
   </div>
 </div>
