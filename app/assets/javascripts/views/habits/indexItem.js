@@ -21,6 +21,7 @@ GamifyApp.Views.HabitIndexItem = GamifyApp.Views.TaskIndexItem.extend({
 
   doDamage: function(){
     this.user.damage(this.damage);
+    this.user.save()
     this.model.click({sign: -1})
   }
 })

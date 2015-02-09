@@ -67,6 +67,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
       this.check && this.check(event);
       this.user.gainGold(this.gold);
       this.user.gainXp(this.xp);
+      this.user.save();
       this.model.click({sign: 1})
     }
   }
