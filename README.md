@@ -69,6 +69,7 @@ I'll update the Rails User model to track gold. Add one more model for Rewards t
 - [ ] give random backgrounds as rewards along with xp and gold.
 - [ ] use chart.js or something similar to display click history
 - [ ] keep completed todos so user can see them
+- [ ] have guest data persist if guest wants to make an account
 - [ ] allow users to choose a "class," which displays a different avatar.
 - [ ] add default "equipment" the the rewards list that does things like increasing gold.
 - [ ] allow adding emojis to task titles.

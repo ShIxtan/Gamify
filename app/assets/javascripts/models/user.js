@@ -63,6 +63,16 @@ GamifyApp.Models.User = Backbone.Model.extend({
     return user;
   },
 
+  // collections: function(name){
+  //   this._collections = this._collections || {};
+  //
+  //   if (!name){
+  //     return _(this._collections)
+  //   } else {
+  //     this._collections[name] = this._collections[name] || new
+  //   }
+  // }
+
   habits: function(){
     if (!this._habits){
       this._habits = new GamifyApp.Collections.Habits()
@@ -95,12 +105,12 @@ GamifyApp.Models.User = Backbone.Model.extend({
     return this._rewards;
   },
 
-  // tags: function(){
-  //   if (!this._tags){
-  //     this._tags = new GamifyApp.Collections.Tags()
-  //   }
-  //
-  //   return this._tags;
-  // },
+  tags: function(){
+    if (!this._tags){
+      this._tags = new GamifyApp.Collections.Tags()
+    }
+
+    return this._tags;
+  }
 
 });

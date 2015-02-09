@@ -6,6 +6,6 @@ GamifyApp.Models.Todo = GamifyApp.Models.Task.extend({
   },
 
   click: function(){
-    //override default click to prevent failed ajax
+    //prevents ajax from being called
   }
 });
