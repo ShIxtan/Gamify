@@ -47,7 +47,7 @@ module Api
     private
 
     def habit_params
-      params.require(:habit).permit(:title, :rank, :quality, :description, :sign)
+      params.require(:habit).permit(:title, :rank, :quality, :description, :sign, :tag_ids)
     end
   end
 end

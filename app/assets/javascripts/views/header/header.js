@@ -8,9 +8,11 @@ GamifyApp.Views.Header = Backbone.CompositeView.extend({
   render: function(){
     this.$el.html(this.template());
     var nav = new GamifyApp.Views.Navbar();
-    var user = new GamifyApp.Views.UserShow({model: this.model})
+    var user = new GamifyApp.Views.UserShow({model: this.model});
+    var tags = new GamifyApp.Views.TagsIndex({collection: this.model.tags()});
     this.addSubview('.navbar', nav);
-    this.addSubview('.user', user)
+    this.addSubview('.user', user);
+    this.addSubview('.tags', tags);
     return this;
   },
 

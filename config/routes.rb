@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :dailies, only: [:create, :destroy, :index, :update, :show]
     resources :todos, only: [:create, :destroy, :update, :index, :show]
     resources :rewards, only: [:create, :destroy, :update, :index, :show]
+    resources :tags, only: [:create, :destroy, :update, :index, :show]
     resources :users, only: [:show, :update]
     resource :users, only: [:show]
   end

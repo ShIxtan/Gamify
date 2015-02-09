@@ -17,5 +17,12 @@
 
   <div class="options">
     <input type="text" class="description" value="<%= model.escape('description') %>" placeholder="description">
+
+    <ul class="taskTags">
+      <% tags.each(function(tag){ %>
+        <input type="checkbox" name="tag_ids[]" id="tag_<%= tag.escape("name") %>" value="<%= tag.id %>">
+        <label for="tag_<%= tag.escape("name") %>"><%= tag.escape("name") %></label>
+      <% }) %>
+    </ul>
   </div>
 </div>

@@ -54,6 +54,11 @@ GamifyApp.Models.User = Backbone.Model.extend({
       delete user.dailies;
     }
 
+    if (user.tags) {
+      this.tags().set(user.tags, { parse: true });
+      delete user.tags;
+    }
+
     return user;
   },
 

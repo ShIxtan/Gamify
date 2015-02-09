@@ -16,7 +16,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   render: function(){
     this.$el.attr("id", this.model.id);
-    this.$el.html(this.template({model: this.model}));
+    this.$el.html(this.template({model: this.model, tags: this.user.tags()}));
     this.$('.editable').editable("click", this.updateTitle.bind(this));
     this.$('.check').addClass(this.buttonClass);
     this.renderStrength()

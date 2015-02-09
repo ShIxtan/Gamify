@@ -47,7 +47,7 @@ module Api
     private
 
     def reward_params
-      params.require(:reward).permit(:title, :rank, :description)
+      params.require(:reward).permit(:title, :rank, :description, :tag_ids)
     end
   end
 end

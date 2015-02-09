@@ -57,7 +57,7 @@ module Api
     private
 
     def todo_params
-      params.require(:todo).permit(:title, :rank, :description)
+      params.require(:todo).permit(:title, :rank, :description, :tag_ids)
     end
   end
 end

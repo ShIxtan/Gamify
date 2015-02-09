@@ -46,7 +46,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
 
   addIndexItem: function(task){
     taskView = new task.viewClass ({model: task, user: this.model});
-    this.addSubview("ul", taskView);
+    this.addSubview(".task-list", taskView);
     this.refreshAccordion();
   },
 
