@@ -44,8 +44,10 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   },
 
   refreshAccordion: function(event, ui){
+    var active = this.$( ".task-list" ).accordion( "option", "active" );
     this.$('.task-list').accordion( "refresh" );
     this.onAccordion();
+    this.$( ".task-list" ).accordion( "option", "active", active );
   },
 
   addIndexItem: function(task){
