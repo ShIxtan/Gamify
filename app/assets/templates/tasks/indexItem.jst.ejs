@@ -20,7 +20,7 @@
 
     <ul class="taskTags">
       <% tags.each(function(tag){ %>
-        <% if (model.tags().contains(tag)){%>
+        <% if (model.tags().get(tag.id)){%>
          <% checked = "checked" %>
         <% } else { %>
           <% checked = "" %>

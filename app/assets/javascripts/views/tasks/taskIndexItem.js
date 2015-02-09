@@ -55,7 +55,6 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   saveTask: function(){
     var params = this.$('.options').serializeJSON();
     this.model.save(params);
-    debugger;
   },
 
   deleteTask: function(event){
