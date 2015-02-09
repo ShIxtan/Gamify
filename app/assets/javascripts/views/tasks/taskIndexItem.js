@@ -3,8 +3,9 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   tagName: "li class='list-group-item task'",
 
   initialize: function(options){
-    this.listenTo(this.model, "sync", this.render);
     this.user = options.user;
+    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.user.tags(), "add remove", this.render)
   },
 
   events: {
@@ -52,8 +53,9 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   },
 
   saveTask: function(){
-    var description = this.$('.description').val()
-    this.model.save({description: description})
+    var params = this.$('.options').serializeJSON();
+    this.model.save(params);
+    debugger;
   },
 
   deleteTask: function(event){
