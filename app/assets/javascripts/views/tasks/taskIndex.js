@@ -5,7 +5,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.name = options.name;
     this.listenTo(this.collection, "add", this.addIndexItem.bind(this));
-    this.listenTo(this.model.tags(), "toggle", this.tagToggle)
+    this.listenTo(this.model.tags(), "toggle", this.tagToggle);
   },
 
   events: {
@@ -14,6 +14,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     "sortstop": "updateOrder",
     "mouseenter .edit": "onAccordion",
     "mouseleave .edit": "offAccordion",
+    "offAccordion li": "offAccordion",
     "refresh li": "refreshAccordion"
   },
 
@@ -23,7 +24,8 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
       active: false,
       collapsible: true,
       header: "> li > .item",
-      disabled: true
+      disabled: true,
+      animate: false
     }).sortable({
       handle: ".item",
       placeholder: "task-shadow task list-group-item",
@@ -43,6 +45,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
 
   refreshAccordion: function(event, ui){
     this.$('.task-list').accordion( "refresh" );
+    this.onAccordion();
   },
 
   addIndexItem: function(task){
