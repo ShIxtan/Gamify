@@ -25,7 +25,7 @@
         <% } else { %>
           <% checked = "" %>
         <% } %>
-        <input type="checkbox" name="tag_ids[]" id="tag_<%= tag.escape("name") %>" value="<%= tag.id %>" <%= checked %>>
+        <input type="checkbox" name="tag_ids[]" id="tag_<%= tag.escape("name") %>" value=<%= tag.id %> <%= checked %>>
         <label for="tag_<%= tag.escape("name") %>"><%= tag.escape("name") %></label>
       <% }) %>
     </ul>

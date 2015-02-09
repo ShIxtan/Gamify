@@ -22,6 +22,7 @@ module Api
 
     def update
       habit = Habit.find(params[:id])
+      habit.tag_ids = params[:tag_ids]
       if habit.update(habit_params)
         render :json => habit
       else
