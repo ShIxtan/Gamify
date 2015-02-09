@@ -19,7 +19,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   render: function(){
     this.$el.attr("id", this.model.id);
     this.$el.html(this.template({model: this.model, tags: this.user.tags()}));
-    this.$('.editable').editable("click", this.updateTitle.bind(this));
+    this.$('.title .editable').editable("click", this.updateTitle.bind(this));
+    this.$('.description .editable').editable("click", this.updateDescription.bind(this))
     this.$('.check').addClass(this.buttonClass);
     this.renderStrength()
     this.$el.trigger("refresh");
@@ -50,6 +51,11 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   updateTitle: function(event){
     this.model.set("title", event.value);
+    this.model.save();
+  },
+
+  updateDescription: function(event){
+    this.model.set("description", event.value);
     this.model.save();
   },
 

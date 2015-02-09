@@ -16,7 +16,9 @@
   </div>
 
   <form class="options">
-    <input type="text" class="description" name="description" value="<%= model.escape('description') %>" placeholder="description">
+    <span class="description">
+      <span class="editable"><%= model.escape('description') %></span>
+    </span>
 
     <ul class="taskTags">
       <% tags.each(function(tag){ %>

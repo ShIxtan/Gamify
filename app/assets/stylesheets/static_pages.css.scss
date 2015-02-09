@@ -120,6 +120,7 @@
 }
 .item {
   height: 30px;
+  cursor: move;
 }
 
 .title {
@@ -148,7 +149,6 @@
 }
 
 .task {
-  cursor: move;
   margin-top: 5px;
 }
 
@@ -224,4 +224,8 @@ body {
 
 li.list-group-item-primary {
   background: #B6D6E3;
+}
+
+.editable {
+  cursor: pointer;
 }
