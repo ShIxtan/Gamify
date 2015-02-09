@@ -5,16 +5,16 @@ module Api
       task_click = @daily.task_clicks.new({sign: params[:sign]})
       if task_click.save
         render json: task_click
-        daily.update_strength
+        @daily.update_strength
       else
         render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def create
-      daily = Daily.new(daily_params)
-      daily.user_id = current_user.id
-      if daily.save
+      @daily = Daily.new(daily_params)
+      @daily.user_id = current_user.id
+      if @daily.save
         render :show
       else
         render json: { error: "invalid url" }, status: :unprocessable_entity
