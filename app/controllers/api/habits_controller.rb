@@ -1,38 +1,40 @@
 module Api
   class HabitsController < ApiController
     def click
-      habit = Habit.find(params[:id])
+      @habit = Habit.find(params[:id])
       task_click = habit.task_clicks.new({sign: params[:sign]})
+
       if task_click.save
-        render :json => habit.update_strength
+        @habit.update_strength
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def create
-      habit = Habit.new(habit_params)
-      habit.user_id = current_user.id
-      if habit.save
-        render :json => habit
+      @habit = Habit.new(habit_params)
+      @habit.user_id = current_user.id
+      if @habit.save
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def update
-      habit = Habit.find(params[:id])
-      habit.tag_ids = params[:tag_ids]
-      if habit.update(habit_params)
-        render :json => habit
+      @habit = Habit.find(params[:id])
+      @habit.tag_ids = params[:tag_ids]
+      if @habit.update(habit_params)
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def destroy
-      habit = Habit.find(params[:id])
-      habit.destroy
+      @habit = Habit.find(params[:id])
+      @habit.destroy
       render json: {}
     end
 
@@ -42,7 +44,8 @@ module Api
     end
 
     def show
-      render json: Habit.find(params[:id])
+      @habit = Habit.find(params[:id])
+      render :show
     end
 
     private

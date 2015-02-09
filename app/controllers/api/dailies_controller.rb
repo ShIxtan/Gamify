@@ -1,13 +1,13 @@
 module Api
   class DailiesController < ApiController
     def click
-      daily = Daily.find(params[:id])
+      @daily = Daily.find(params[:id])
       task_click = daily.task_clicks.new({sign: params[:sign]})
       if task_click.save
-        render :json => task_click
+        render json: task_click
         daily.update_strength
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
@@ -15,25 +15,25 @@ module Api
       daily = Daily.new(daily_params)
       daily.user_id = current_user.id
       if daily.save
-        render :json => daily
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def update
-      daily = Daily.find(params[:id])
-      daily.touch
-      if daily.update(daily_params)
-        render :json => daily
+      @daily = Daily.find(params[:id])
+      @daily.touch
+      if @daily.update(daily_params)
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def destroy
-      daily = Daily.find(params[:id])
-      daily.destroy
+      @daily = Daily.find(params[:id])
+      @daily.destroy
       render json: {}
     end
 
@@ -43,7 +43,8 @@ module Api
     end
 
     def show
-      render json: Daily.find(params[:id])
+      @daily = Daily.find(params[:id])
+      render :show
     end
 
     private

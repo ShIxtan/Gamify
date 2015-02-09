@@ -1,37 +1,37 @@
 module Api
   class RewardsController < ApiController
     def click
-      reward = Reward.find(params[:id])
+      @reward = Reward.find(params[:id])
       task_click = reward.task_clicks.new({sign: params[:sign]})
       if task_click.save
-        render :json => task_click
+        render json: task_click
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def create
-      reward = Reward.new(reward_params)
-      reward.user_id = current_user.id
-      if reward.save
-        render :json => reward
+      @reward = Reward.new(reward_params)
+      @reward.user_id = current_user.id
+      if @reward.save
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def update
-      reward = Reward.find(params[:id])
-      if reward.update(reward_params)
-        render :json => reward
+      @reward = Reward.find(params[:id])
+      if @reward.update(reward_params)
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def destroy
-      reward = Reward.find(params[:id])
-      reward.destroy
+      @reward = Reward.find(params[:id])
+      @reward.destroy
       render json: {}
     end
 
@@ -41,7 +41,8 @@ module Api
     end
 
     def show
-      render json: Reward.find(params[:id])
+      @reward = Reward.find(params[:id])
+      render :show
     end
 
     private

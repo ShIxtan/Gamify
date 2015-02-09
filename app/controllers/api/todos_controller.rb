@@ -1,31 +1,31 @@
 module Api
   class TodosController < ApiController
     def click
-      todo = Todo.find(params[:id])
+      @todo = Todo.find(params[:id])
       task_click = todo.task_clicks.new({sign: params[:sign]})
       if task_click.save
-        render :json => task_click
+        render json: task_click
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def create
-      todo = Todo.new(todo_params)
-      todo.user_id = current_user.id
-      if todo.save
-        render :json => todo
+      @todo = Todo.new(todo_params)
+      @todo.user_id = current_user.id
+      if @todo.save
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
     def update
-      todo = Todo.find(params[:id])
-      if todo.update(todo_params)
-        render :json => todo
+      @todo = Todo.find(params[:id])
+      if @todo.update(todo_params)
+        render :show
       else
-        render :json => { error: "invalid url" }, status: :unprocessable_entity
+        render json: { error: "invalid url" }, status: :unprocessable_entity
       end
     end
 
@@ -51,7 +51,8 @@ module Api
     end
 
     def show
-      render json: Todo.find(params[:id])
+      @todo = Todo.find(params[:id])
+      render :show
     end
 
     private
