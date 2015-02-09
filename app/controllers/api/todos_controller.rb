@@ -22,6 +22,7 @@ module Api
 
     def update
       @todo = Todo.find(params[:id])
+      @todo.tag_ids = params[:tag_ids]
       if @todo.update(todo_params)
         render :show
       else

@@ -12,7 +12,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     "click .del": "deleteTask",
     "click .check": "checkTask",
     "click .minus": "doDamage",
-    "click .save": "saveTask"
+    "click .save": "saveTask",
+    "submit": "saveTask"
   },
 
   render: function(){

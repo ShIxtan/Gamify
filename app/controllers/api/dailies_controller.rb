@@ -24,6 +24,7 @@ module Api
     def update
       @daily = Daily.find(params[:id])
       @daily.touch
+      @daily.tag_ids = params[:tag_ids]
       if @daily.update(daily_params)
         render :show
       else

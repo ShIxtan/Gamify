@@ -22,6 +22,7 @@ module Api
 
     def update
       @reward = Reward.find(params[:id])
+      @reward.tag_ids = params[:tag_ids]
       if @reward.update(reward_params)
         render :show
       else
