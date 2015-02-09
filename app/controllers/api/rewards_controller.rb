@@ -2,7 +2,7 @@ module Api
   class RewardsController < ApiController
     def click
       @reward = Reward.find(params[:id])
-      task_click = reward.task_clicks.new({sign: params[:sign]})
+      task_click = @reward.task_clicks.new({sign: params[:sign]})
       if task_click.save
         render json: task_click
       else

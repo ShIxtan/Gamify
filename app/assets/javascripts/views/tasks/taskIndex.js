@@ -5,6 +5,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.name = options.name;
     this.listenTo(this.collection, "add", this.addIndexItem.bind(this));
+    this.listenTo(this.model.tags(), "toggle", this.tagToggle)
   },
 
   events: {
@@ -75,5 +76,24 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   afterRender: function(){
     this.refreshAccordion();
     Backbone.CompositeView.prototype.afterRender.call(this)
+  },
+
+  tagToggle: function(){
+    if (this.model.tags().active().length === 0){
+      this.attachSubviews()
+    } else {
+      this.subviews().each(function(subviews){
+        subviews.each(function(view){
+          _(this.model.tags().active()).each(function(tag){
+            if (view.model.tags().get(tag.id)){
+              this.attachSubview(".task-list", view);
+            } else {
+              view.remove();
+            }
+          }, this)
+        }, this)
+      }, this)
+    }
+    this.afterRender();
   }
 });

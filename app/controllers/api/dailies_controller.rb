@@ -2,7 +2,7 @@ module Api
   class DailiesController < ApiController
     def click
       @daily = Daily.find(params[:id])
-      task_click = daily.task_clicks.new({sign: params[:sign]})
+      task_click = @daily.task_clicks.new({sign: params[:sign]})
       if task_click.save
         render json: task_click
         daily.update_strength

@@ -7,11 +7,11 @@ GamifyApp.Models.Tag = Backbone.Model.extend({
 
   activate: function(){
     this._active = true;
-    this.trigger("tagActivated")
+    this.trigger("tagToggle")
   },
 
   deactivate: function(){
     this._active = false;
-    this.trigger("tagDeactivated")
+    this.trigger("tagToggle")
   }
 });

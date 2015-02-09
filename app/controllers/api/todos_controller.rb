@@ -2,7 +2,7 @@ module Api
   class TodosController < ApiController
     def click
       @todo = Todo.find(params[:id])
-      task_click = todo.task_clicks.new({sign: params[:sign]})
+      task_click = @todo.task_clicks.new({sign: params[:sign]})
       if task_click.save
         render json: task_click
       else
