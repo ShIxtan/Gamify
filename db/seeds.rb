@@ -25,7 +25,6 @@ Tag.create!([
   {name: "code", user_id: 1},
   {name: "health", user_id: 1}
 ])
-
 Todo.create!([
   {title: "Demo Day!", user_id: 1, rank: nil, description: nil, strength: 3},
   {title: "Add Charts", user_id: 1, rank: 1, description: "Maybe use Chart.js", strength: 3},
