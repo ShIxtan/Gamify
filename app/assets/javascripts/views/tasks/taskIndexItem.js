@@ -4,26 +4,29 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.user = options.user;
-    this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.user.tags(), "add remove sync", this.render);
   },
 
   events: {
     "click .del": "deleteTask",
     "click .check": "checkTask",
     "click .minus": "doDamage",
-    "change :checkbox": "saveTask"
+    "click .edit": "renderEdit"
   },
 
   render: function(){
     this.$el.attr("id", this.model.id);
-    this.$el.html(this.template({model: this.model, tags: this.user.tags()}));
+    this.$el.html(this.template({task: this.model}));
     this.$('.title .editable').editable("click", this.updateTitle.bind(this));
-    this.$('.description .editable').editable("click", this.updateDescription.bind(this))
     this.$('.check').addClass(this.buttonClass);
     this.renderStrength()
     this.$el.trigger("refresh");
     return this;
+  },
+
+  renderEdit: function(){
+    this.removeSubviews();
+    boxView = new GamifyApp.Views.TaskEdit({model: this.model, collection: this.user.tags()});
+    this.addSubview(".item-box", boxView);
   },
 
   renderStrength: function(){
@@ -53,16 +56,6 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     this.model.save();
   },
 
-  updateDescription: function(event){
-    this.model.set("description", event.value);
-    this.model.save();
-  },
-
-  saveTask: function(){
-    var params = this.$('.options').serializeJSON();
-    this.model.save(params);
-  },
-
   deleteTask: function(event){
     event.preventDefault()
     this.model.destroy()
@@ -81,7 +74,6 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   afterRender: function(){
     this.$('.title .editable').editable("click", this.updateTitle.bind(this));
-    this.$('.description .editable').editable("click", this.updateDescription.bind(this))
     if (this.model.get("description")){
       this.$('.tip').tipr({'mode': 'top'});
     }

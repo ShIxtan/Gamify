@@ -1,0 +1,25 @@
+<div class="icons">
+  <span class="del glyphicon glyphicon-trash"></span>
+</div>
+
+<form class="options">
+  <span class="description">
+    <h3>Description:</h3>
+    <span class="editable"><%= task.escape('description') ? task.escape('description') : "add description"%></span>
+  </span>
+
+  <h3>Tags:</h3>
+  <ul class="task-tags">
+    <% tags.each(function(tag){ %>
+      <% if (task.tags().get(tag.id)){%>
+       <% checked = "checked" %>
+      <% } else { %>
+        <% checked = "" %>
+      <% } %>
+      <li>
+        <input type="checkbox" name="tag_ids[]" id="tag_<%= tag.escape("name") %>" value=<%= tag.id %> <%= checked %>>
+        <label for="tag_<%= tag.escape("name") %>"><%= tag.escape("name") %></label>
+      </li>
+    <% }) %>
+  </ul>
+</form>
