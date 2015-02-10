@@ -4,7 +4,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.user = options.user;
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync", this.renderEdit)
   },
 
   events: {
