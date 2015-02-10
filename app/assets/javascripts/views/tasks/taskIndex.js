@@ -100,5 +100,6 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
         }, this)
       }, this)
     }
+    this.refreshAccordion();
   }
 });
