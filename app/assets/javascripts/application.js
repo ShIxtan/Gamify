@@ -20,6 +20,7 @@
 //= require backbone
 //= require bootstrap
 //= require tipr
+//= require chart
 //= require gamify_app
 //= require_tree ../templates
 //= require_tree ./utils
