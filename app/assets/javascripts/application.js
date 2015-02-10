@@ -19,6 +19,7 @@
 //= require underscore
 //= require backbone
 //= require bootstrap
+//= require tipr
 //= require gamify_app
 //= require_tree ../templates
 //= require_tree ./utils
