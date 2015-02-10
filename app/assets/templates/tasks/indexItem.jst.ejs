@@ -12,12 +12,12 @@
 <div class="edit-box">
   <div class="icons">
     <span class="del glyphicon glyphicon-trash"></span>
-    <span class="save glyphicon glyphicon-ok"></span>
   </div>
 
   <form class="options">
     <span class="description">
-      <span class="editable"><%= model.escape('description') %></span>
+      Description:
+      <span class="editable"><%= model.escape('description') ? model.escape('description') : "add description"%></span>
     </span>
 
     <ul class="taskTags">
