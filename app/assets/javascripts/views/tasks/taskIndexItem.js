@@ -4,6 +4,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.user = options.user;
+    this.listenTo(this.model, "sync", this.render)
   },
 
   events: {
@@ -17,10 +18,9 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   render: function(){
     this.$el.attr("id", this.model.id);
     this.$el.html(this.template({task: this.model}));
-    this.$('.title .editable').editable("click", this.updateTitle.bind(this));
     this.$('.check').addClass(this.buttonClass);
-    this.renderStrength()
-    this.$el.trigger("refresh");
+    this.renderStrength();
+    this.afterRender();
     return this;
   },
 
@@ -80,7 +80,10 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   },
 
   afterRender: function(){
+    Backbone.CompositeView.prototype.afterRender.call(this)
+    this.$el.trigger("refresh");
     this.$('.title .editable').editable("click", this.updateTitle.bind(this));
+    this.renderEdit();
     if (this.model.get("description")){
       this.$('.tip').tipr({'mode': 'top'});
     }
