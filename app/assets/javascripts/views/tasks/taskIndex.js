@@ -64,7 +64,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     }
   },
 
-  updateOrder: function(){
+  updateOrder: function(event, ui){
     var sortedIds = this.$(".task-list").sortable("toArray")
     var that = this;
 
@@ -73,8 +73,8 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
       task.set({rank: rank});
       task.save();
     });
-
     this.refreshAccordion();
+    this.$( ".task-list" ).accordion( "option", "active", false);
   },
 
   afterRender: function(){
