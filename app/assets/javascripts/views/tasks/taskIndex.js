@@ -4,7 +4,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.name = options.name;
-    this.listenTo(this.collection, "add", this.addIndexItem.bind(this));
+    this.listenTo(this.collection, "add", this.addItemAndRefresh.bind(this));
     this.listenTo(this.model.tags(), "toggle", this.tagToggle);
   },
 
@@ -14,7 +14,6 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     "sortstop": "updateOrder",
     "mouseenter .edit, .graph": "onAccordion",
     "mouseleave .edit, .graph": "offAccordion",
-    "offAccordion li": "offAccordion",
     "refresh li": "refreshAccordion"
   },
 
@@ -31,7 +30,6 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
       placeholder: "task-shadow task list-group-item",
       forcePlaceholderSize: true
     });
-    this.collection.each(this.addIndexItem.bind(this))
     return this;
   },
 
@@ -49,10 +47,14 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     this.$( ".task-list" ).accordion( "option", "active", active );
   },
 
+  addItemAndRefresh:function(task){
+    this.addIndexItem(task);
+    this.refreshAccordion();
+  },
+
   addIndexItem: function(task){
     taskView = new task.viewClass ({model: task, user: this.model});
     this.addSubview(".task-list", taskView);
-    this.refreshAccordion();
   },
 
   createTask: function(event){
@@ -78,8 +80,8 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   },
 
   afterRender: function(){
+    this.collection.each(this.addIndexItem.bind(this))
     this.refreshAccordion();
-    Backbone.CompositeView.prototype.afterRender.call(this)
   },
 
   tagToggle: function(){
@@ -89,7 +91,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
       this.subviews().each(function(subviews){
         subviews.each(function(view){
           _(this.model.tags().active()).each(function(tag){
-            if (view.model.tags().get(tag.id)){
+            if (view.model.tags().get(tag)){
               this.attachSubview(".task-list", view);
             } else {
               view.remove();
@@ -98,6 +100,5 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
         }, this)
       }, this)
     }
-    this.afterRender();
   }
 });

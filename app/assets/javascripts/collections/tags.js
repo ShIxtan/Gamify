@@ -15,7 +15,7 @@ GamifyApp.Collections.Tags = Backbone.Collection.extend({
     this._active = [];
     this.each(function(tag){
       if (tag.isActive()){
-        this._active.push(tag);
+        this._active.push(tag.id);
       }
     }, this)
 
