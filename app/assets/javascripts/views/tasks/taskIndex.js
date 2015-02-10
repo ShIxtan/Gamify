@@ -12,8 +12,8 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     "submit": "createTask",
     "click .add": "createTask",
     "sortstop": "updateOrder",
-    "mouseenter .edit": "onAccordion",
-    "mouseleave .edit": "offAccordion",
+    "mouseenter .edit, .graph": "onAccordion",
+    "mouseleave .edit, .graph": "offAccordion",
     "offAccordion li": "offAccordion",
     "refresh li": "refreshAccordion"
   },

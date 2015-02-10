@@ -10,7 +10,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     "click .del": "deleteTask",
     "click .check": "checkTask",
     "click .minus": "doDamage",
-    "click .edit": "renderEdit"
+    "click .edit": "renderEdit",
+    "click .graph": "renderGraph"
   },
 
   render: function(){
@@ -26,6 +27,12 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   renderEdit: function(){
     this.removeSubviews();
     boxView = new GamifyApp.Views.TaskEdit({model: this.model, collection: this.user.tags()});
+    this.addSubview(".item-box", boxView);
+  },
+
+  renderGraph: function(){
+    this.removeSubviews();
+    boxView = new GamifyApp.Views.TaskGraph({model: this.model});
     this.addSubview(".item-box", boxView);
   },
 

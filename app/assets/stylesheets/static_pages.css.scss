@@ -159,14 +159,15 @@
   margin-top: 5px;
 }
 
-.task .edit {
+.task .edit, .task .graph{
   visibility: hidden;
+  margin: 0 5px;
+  float: right;
 }
 
-.task:hover .edit {
+.task:hover .edit, .task:hover .graph{
   visibility: visible;
   cursor: pointer;
-  float: right;
 }
 
 .task-lists {
