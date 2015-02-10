@@ -13,8 +13,11 @@ GamifyApp.Views.TagsIndex = Backbone.CompositeView.extend({
 
   render: function(){
     this.$el.html(this.template());
-    this.collection.each(this.addTag.bind(this))
     return this;
+  },
+
+  afterRender: function(){
+    this.collection.each(this.addTag.bind(this))
   },
 
   addTag: function(tag){
