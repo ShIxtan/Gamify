@@ -21,5 +21,7 @@
         <label for="tag_<%= tag.escape("name") %>"><%= tag.escape("name") %></label>
       </li>
     <% }) %>
+
+    <input type="hidden" name="tag_ids[]" value="">
   </ul>
 </form>

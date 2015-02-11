@@ -14,16 +14,19 @@ GamifyApp.Views.DailyIndexItem = GamifyApp.Views.TaskIndexItem.extend({
   isDisabled: function(){
     var midnight = new Date();
     midnight.setHours(0,0,0,0);
+
     if (this.model.get("last_checked")){
       var lastChecked = new Date(this.model.get("last_checked"))
     }
 
     if (!lastChecked || (midnight > lastChecked)){
-      this.$el.removeClass("disabled")
-      this.buttonClass = "glyphicon-unchecked"
+      this.$el.removeClass("disabled");
+      this.buttonClass = "glyphicon-unchecked";
     } else {
-      this.$el.addClass("disabled")
-      this.buttonClass = "glyphicon-ok"
+      this.$el.addClass("disabled");
+      this.buttonClass = "glyphicon-ok";
+      this.render();
+      this.renderBox();
     }
   },
 
