@@ -8,6 +8,12 @@
     <span class="editable"><%= task.escape('description') ? task.escape('description') : "add description"%></span>
   </div>
 
+  <div class="plus-minus">
+    <h3>Buttons:</h3>
+    <span class="plus btn glyphicon glyphicon-plus"></span>
+    <span class="min btn glyphicon glyphicon-minus"></span>
+  </div>
+  
   <h3>Tags:</h3>
   <ul class="task-tags">
     <% tags.each(function(tag){ %>
@@ -24,10 +30,4 @@
 
     <input type="hidden" name="tag_ids[]" value="">
   </ul>
-
-  <div class="plus-minus">
-    <h3>Buttons:</h3>
-    <span class="plus btn glyphicon glyphicon-plus"></span>
-    <span class="min btn glyphicon glyphicon-minus"></span>
-  </div>
 </form>
