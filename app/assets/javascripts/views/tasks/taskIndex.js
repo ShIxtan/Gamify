@@ -6,6 +6,7 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     this.name = options.name;
     this.listenTo(this.collection, "add", this.addItemAndRefresh.bind(this));
     this.listenTo(this.model.tags(), "toggle", this.tagToggle);
+    this.listenTo(this.collection, "remove", this.collapse)
   },
 
   events: {
