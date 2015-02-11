@@ -24,7 +24,7 @@ module Api
 
     def update
       @habit = Habit.find(params[:id])
-      @habit.tag_ids = params[:tag_ids]
+      @habit.tag_ids = params[:tag_ids] if params[:tag_ids]
       if @habit.update(habit_params)
         render :show
       else
@@ -44,7 +44,7 @@ module Api
     end
 
     def show
-      @habit = Habit.find(params[:id])
+      @habit = Habit.includes(:tags).find(params[:id])
       render :show
     end
 

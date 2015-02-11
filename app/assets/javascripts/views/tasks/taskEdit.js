@@ -22,7 +22,6 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
   },
 
   updateDescription: function(event){
-    this.model.set("description", event.value);
-    this.model.save();
+    this.model.save({"description": event.value});
   },
 })

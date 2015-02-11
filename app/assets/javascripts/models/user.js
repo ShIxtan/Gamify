@@ -27,11 +27,6 @@ GamifyApp.Models.User = Backbone.Model.extend({
   },
 
   parse: function(resp){
-    // if (resp.tags) {
-    //   this.tags().set(response.tags, { parse: true });
-    //   delete response.tags;
-    // }
-
     var user = resp.user
 
     if (user.habits) {

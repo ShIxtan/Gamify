@@ -22,7 +22,7 @@ module Api
 
     def update
       @reward = Reward.find(params[:id])
-      @reward.tag_ids = params[:tag_ids]
+      @reward.tag_ids = params[:tag_ids] if params[:tag_ids]
       if @reward.update(reward_params)
         render :show
       else
@@ -42,7 +42,7 @@ module Api
     end
 
     def show
-      @reward = Reward.find(params[:id])
+      @reward = Reward.includes(:tags).find(params[:id])
       render :show
     end
 

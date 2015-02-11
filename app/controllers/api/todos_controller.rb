@@ -22,7 +22,7 @@ module Api
 
     def update
       @todo = Todo.find(params[:id])
-      @todo.tag_ids = params[:tag_ids]
+      @todo.tag_ids = params[:tag_ids] if params[:tag_ids]
       if @todo.update(todo_params)
         render :show
       else
@@ -52,7 +52,7 @@ module Api
     end
 
     def show
-      @todo = Todo.find(params[:id])
+      @todo = Todo.includes(:tags).find(params[:id])
       render :show
     end
 

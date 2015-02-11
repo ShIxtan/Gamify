@@ -5,7 +5,7 @@ json.user do
 
   json.todos @user.todos do |todo|
     json.extract! todo, :id, :title, :rank, :created_at, :updated_at, :description, :strength
-    json.tags todo.tags 
+    json.tags todo.tags
   end
 
   json.rewards @user.rewards do |reward|

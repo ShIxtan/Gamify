@@ -77,8 +77,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   },
 
   updateTitle: function(event){
-    this.model.set("title", event.value);
-    this.model.save();
+    this.model.save({'title': event.value});
   },
 
   deleteTask: function(event){
