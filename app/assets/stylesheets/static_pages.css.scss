@@ -126,7 +126,7 @@
   padding-top: 5px;
 }
 .item {
-  height: 30px;
+  min-height: 30px;
   cursor: move;
 }
 
@@ -135,8 +135,7 @@
   line-height: 28px;
   padding-left: 10px;
   width: 125px;
-  overflow: hidden;
-  height: 28px;
+  overflow: auto;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
