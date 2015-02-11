@@ -7,7 +7,9 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
   },
 
   events: {
-    "change :checkbox": "saveTask"
+    "change :checkbox": "saveTask",
+    "click .min": "clickMinus",
+    "click .plus": "clickPlus"
   },
 
   render: function(){
@@ -23,5 +25,25 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
 
   updateDescription: function(event){
     this.model.save({"description": event.value});
+  },
+
+  clickMinus: function(){
+    var qual = this.model.get('quality');
+
+    if (qual === "gb"){
+      this.model.save({quality: "g"})
+    } else if (qual === "g"){
+      this.model.save({quality: "gb"})
+    }
+  },
+
+  clickPlus: function(){
+    var qual = this.model.get('quality');
+
+    if (qual === "gb"){
+      this.model.save({quality: "b"})
+    } else if (qual === "b"){
+      this.model.save({quality: "gb"})
+    }
   },
 })

@@ -25,6 +25,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     this.$('.check').addClass(this.buttonClass);
     this.renderStrength();
     this.$el.trigger("refresh");
+    this.rend && this.rend();
     return this;
   },
 

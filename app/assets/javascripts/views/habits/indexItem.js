@@ -10,11 +10,18 @@ GamifyApp.Views.HabitIndexItem = GamifyApp.Views.TaskIndexItem.extend({
 
   render: function(){
     GamifyApp.Views.TaskIndexItem.prototype.render.call(this);
+
     if (this.model.get("quality") === "gb"){
+      this.$('.checks').addClass("gb")
       this.$(".hide").removeClass("hide");
     } else if (this.model.get("quality") === "b"){
+      this.$('.checks').removeClass("gb")
       this.$(".hide").removeClass("hide");
       this.$(".check").addClass("hide");
+    } else {
+      this.$('.checks').removeClass("gb")
+      this.$(".hide").removeClass("hide");
+      this.$(".minus").addClass("hide")
     }
     return this;
   },

@@ -3,10 +3,10 @@
 </div>
 
 <form class="options">
-  <span class="description">
+  <div class="description">
     <h3>Description:</h3>
     <span class="editable"><%= task.escape('description') ? task.escape('description') : "add description"%></span>
-  </span>
+  </div>
 
   <h3>Tags:</h3>
   <ul class="task-tags">
@@ -24,4 +24,10 @@
 
     <input type="hidden" name="tag_ids[]" value="">
   </ul>
+
+  <div class="plus-minus">
+    <h3>Buttons:</h3>
+    <span class="plus btn glyphicon glyphicon-plus"></span>
+    <span class="min btn glyphicon glyphicon-minus"></span>
+  </div>
 </form>
