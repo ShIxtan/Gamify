@@ -9,7 +9,7 @@ json.user do
   end
 
   json.rewards @user.rewards do |reward|
-    json.extract! reward, :id, :title, :rank, :created_at, :updated_at, :description
+    json.extract! reward, :id, :title, :rank, :created_at, :updated_at, :description, :cost
     json.tags reward.tags
   end
 

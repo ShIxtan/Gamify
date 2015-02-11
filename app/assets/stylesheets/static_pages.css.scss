@@ -1,11 +1,11 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.plus-minus {
+.plus-minus, .cost {
   display: none;
 }
 
-.habit .plus-minus{
+.habit .plus-minus, .reward .cost{
   display: block;
 }
 
@@ -72,7 +72,7 @@
   min-height: 300px;
 }
 
-.habit .item-box{
+.habit .item-box, .reward .item-box{
   height: 400px;
 }
 
@@ -132,6 +132,17 @@
 .checks.gb > span {
   height: 50%;
   padding-top: 5px;
+}
+
+.reward .check {
+  font-size: 20px;
+  line-height: 10px;
+  font-weight: bold;
+  background: #E6E680;
+}
+
+.reward .check:hover {
+  color: #7A7A00;
 }
 
 .item {

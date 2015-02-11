@@ -9,7 +9,8 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
   events: {
     "change :checkbox": "saveTask",
     "click .min": "clickMinus",
-    "click .plus": "clickPlus"
+    "click .plus": "clickPlus",
+    "spin .spinner": "updateCost"
   },
 
   render: function(){
@@ -25,6 +26,11 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
 
   updateDescription: function(event){
     this.model.save({"description": event.value});
+  },
+
+  updateCost: function(event, ui){
+    cost = ui.value
+    this.model.save({"cost": cost})
   },
 
   clickMinus: function(){
@@ -46,4 +52,12 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
       this.model.save({quality: "gb"})
     }
   },
+
+  afterRender: function(){
+    this.$(".spinner").spinner({
+      min: 1,
+    });
+
+    this.$(".spinner").spinner("value", this.model.get("cost"));
+  }
 })

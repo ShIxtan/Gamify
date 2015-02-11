@@ -1,9 +1,9 @@
 GamifyApp.Views.RewardIndexItem = GamifyApp.Views.TaskIndexItem.extend({
   initialize: function(options){
     GamifyApp.Views.TaskIndexItem.prototype.initialize.call(this, options)
-    this.gold = -10;
+    this.gold = -this.model.get('cost');
     this.xp = 0;
-    this.buttonClass = "glyphicon-minus";
+    this.buttonClass = "";
     this.$el.addClass("reward");
   }
 })

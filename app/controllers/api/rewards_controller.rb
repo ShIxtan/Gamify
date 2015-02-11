@@ -13,6 +13,7 @@ module Api
     def create
       @reward = Reward.new(reward_params)
       @reward.user_id = current_user.id
+      @reward.cost = 10
       if @reward.save
         render :show
       else
@@ -49,7 +50,7 @@ module Api
     private
 
     def reward_params
-      params.require(:reward).permit(:title, :rank, :description, :tag_ids)
+      params.require(:reward).permit(:title, :rank, :description, :cost, :tag_ids)
     end
   end
 end

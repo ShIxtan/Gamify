@@ -1,6 +1,6 @@
 <div class="item tip" data-tip="<%= task.escape('description') ? task.escape('description') : "" %>">
   <span class="checks">
-    <span class="check glyphicon"></span>
+    <span class="check glyphicon"><%= task.get("cost") ? task.get("cost") : ''%></span>
     <span class="minus glyphicon glyphicon-minus hide"></span>
   </span>
   <div class="title">
