@@ -4,7 +4,6 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.user = options.user;
-    this.box = "edit"
     this.listenTo(this.model, "change", function(){
       this.render();
       this.afterRender();
@@ -29,9 +28,9 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   },
 
   renderBox: function(){
-    if (this.box === "edit"){
+    if (this.box && (this.box === "edit")){
       this.renderEdit()
-    } else {
+    } else if (this.box && (this.box === "graph")){
       this.renderGraph();
     }
   },
@@ -41,6 +40,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
       this.box = "edit"
       this.$('.edit').trigger("click")
     }
+
+    this.box = "edit"
     this.removeSubviews();
     boxView = new GamifyApp.Views.TaskEdit({model: this.model, collection: this.user.tags()});
     this.addSubview(".item-box", boxView);
@@ -51,6 +52,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
       this.box = "graph"
       this.$('.graph').trigger("click")
     }
+
+    this.box = "graph"
     this.removeSubviews();
     this.model.fetch({
       success: function(){
