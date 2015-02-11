@@ -98,7 +98,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     this.renderBox();
     this.$('.title .editable').editable("click", this.updateTitle.bind(this));
     if (this.model.get("description")){
-      this.$('.tip').tipr({'mode': 'bottom', 'speed': 500});
+      this.$('.tip').tipr({'mode': 'top', 'speed': 500});
     }
   }
 })
