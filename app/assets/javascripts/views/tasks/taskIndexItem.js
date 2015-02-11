@@ -54,9 +54,9 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     }
 
     this.box = "graph"
-    this.removeSubviews();
     this.model.fetch({
       success: function(){
+        this.removeSubviews();
         boxView = new GamifyApp.Views.TaskGraph({clicks: this.model.get('clicks')});
         this.addSubview(".item-box", boxView);
       }.bind(this)
