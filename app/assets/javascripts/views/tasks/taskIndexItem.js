@@ -4,7 +4,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.user = options.user;
-    this.listenTo(this.model, "sync", this.renderEdit)
+    this.box = "edit"
+    this.listenTo(this.model, "change", this.renderBox)
   },
 
   events: {
@@ -24,16 +25,30 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     return this;
   },
 
+  renderBox: function(){
+    if (this.box === "edit"){
+      this.renderEdit()
+    } else {
+      this.renderGraph();
+    }
+  },
+
   renderEdit: function(){
+    this.box = "edit"
     this.removeSubviews();
     boxView = new GamifyApp.Views.TaskEdit({model: this.model, collection: this.user.tags()});
     this.addSubview(".item-box", boxView);
   },
 
   renderGraph: function(){
+    this.box = "graph"
     this.removeSubviews();
-    boxView = new GamifyApp.Views.TaskGraph({model: this.model});
-    this.addSubview(".item-box", boxView);
+    this.model.fetch({
+      success: function(){
+        boxView = new GamifyApp.Views.TaskGraph({clicks: this.model.get('clicks')});
+        this.addSubview(".item-box", boxView);
+      }.bind(this)
+    })
   },
 
   renderStrength: function(){
@@ -80,10 +95,10 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   },
 
   afterRender: function(){
-    this.renderEdit();
+    this.renderBox();
     this.$('.title .editable').editable("click", this.updateTitle.bind(this));
     if (this.model.get("description")){
-      this.$('.tip').tipr({'mode': 'top'});
+      this.$('.tip').tipr({'mode': 'bottom', 'speed': 500});
     }
   }
 })

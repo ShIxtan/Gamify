@@ -21,6 +21,12 @@ class Daily < ActiveRecord::Base
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
+  def clicks
+    datecount = self.task_clicks.where("date(created_at) > ?", 15.days.ago).group("date(created_at)").count
+
+    datecount.map { |date| date.last }
+  end
+
   def update_strength
     self.strength += 1
     self.save

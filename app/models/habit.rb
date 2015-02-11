@@ -21,6 +21,12 @@ class Habit < ActiveRecord::Base
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
+  def clicks
+    datecount = self.task_clicks.where("date(created_at) > ?", 15.days.ago).group("date(created_at)").count
+
+    datecount.map { |date| date.last }
+  end
+
   def update_strength
     per_day = self.clicks_per_day
 
