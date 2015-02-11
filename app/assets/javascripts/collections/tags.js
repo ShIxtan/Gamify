@@ -19,6 +19,8 @@ GamifyApp.Collections.Tags = Backbone.Collection.extend({
       }
     }, this)
 
+    console.log(this._active)
+
     this.trigger("toggle")
   },
 })

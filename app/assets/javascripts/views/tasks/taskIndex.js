@@ -95,12 +95,11 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     if (this.model.tags().active().length === 0){
       this.attachSubviews()
     } else {
+      this.attachSubviews()
       this.subviews().each(function(subviews){
         subviews.each(function(view){
           _(this.model.tags().active()).each(function(tag){
-            if (view.model.tags().get(tag)){
-              this.attachSubview(".task-list", view);
-            } else {
+            if (!view.model.tags().get(tag)){
               view.remove();
             }
           }, this)
