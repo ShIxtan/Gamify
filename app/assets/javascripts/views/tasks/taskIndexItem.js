@@ -4,6 +4,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.user = options.user;
+    this.open = false;
     this.listenTo(this.model, "change", function(){
       this.render();
       this.afterRender();
@@ -14,8 +15,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     "click .del": "deleteTask",
     "click .check": "checkTask",
     "click .minus": "doDamage",
-    "click .edit": "renderEdit",
-    "click .graph": "renderGraph"
+    "click .edit": "clickEdit",
+    "click .graph": "clickGraph"
   },
 
   render: function(){
@@ -28,32 +29,50 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   },
 
   renderBox: function(){
-    if (this.box && (this.box === "edit")){
+    if (this.box === "edit"){
       this.renderEdit()
-    } else if (this.box && (this.box === "graph")){
+    } else if (this.box === "graph"){
       this.renderGraph();
     }
   },
 
-  renderEdit: function(){
-    if (this.box === "graph"){
-      this.box = "edit"
+  clickEdit: function(){
+    if (this.open && (this.box === "edit")){
+      this.open = false;
+      this.box = null;
+    } else if (this.open && (this.box === "graph")){
+      this.open = false
+      this.box = null
       this.$('.edit').trigger("click")
+    } else {
+      this.open = true;
+      this.box = "edit"
+      this.renderEdit()
     }
+  },
 
-    this.box = "edit"
+  clickGraph: function(){
+    if (this.open && (this.box === "graph")){
+      this.open = false;
+      this.box = null;
+    } else if (this.open && (this.box === "edit")){
+      this.open = false
+      this.box = null
+      this.$('.graph').trigger("click")
+    } else {
+      this.open = true;
+      this.box = "graph"
+      this.renderGraph()
+    }
+  },
+
+  renderEdit: function(){
     this.removeSubviews();
     boxView = new GamifyApp.Views.TaskEdit({model: this.model, collection: this.user.tags()});
     this.addSubview(".item-box", boxView);
   },
 
   renderGraph: function(){
-    if (this.box === "edit"){
-      this.box = "graph"
-      this.$('.graph').trigger("click")
-    }
-
-    this.box = "graph"
     this.model.fetch({
       success: function(){
         this.removeSubviews();
