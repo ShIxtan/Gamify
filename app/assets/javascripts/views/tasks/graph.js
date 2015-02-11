@@ -4,7 +4,7 @@ GamifyApp.Views.TaskGraph = Backbone.CompositeView.extend({
   initialize: function(options){
     this.clicks = options.clicks;
     this.data = {
-      labels: [],
+      labels: this.clicks,
       datasets: [{
         label: "My Second dataset",
         fillColor: "rgba(151,187,205,0.2)",
@@ -24,7 +24,7 @@ GamifyApp.Views.TaskGraph = Backbone.CompositeView.extend({
   },
 
   afterRender: function(){
-    var ctx = this.$('.graph')[0].getContext("2d");
+    var ctx = this.$('.chart')[0].getContext("2d");
     var graph = new Chart(ctx).Line(this.data)
   }
 })
