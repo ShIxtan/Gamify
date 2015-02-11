@@ -41,6 +41,10 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     this.$('.task-list').accordion( "disable" );
   },
 
+  collapse: function(){
+    this.$( ".task-list" ).accordion( "option", "active", false );
+  },
+
   refreshAccordion: function(event, ui){
     var active = this.$( ".task-list" ).accordion( "option", "active" );
     this.$('.task-list').accordion( "refresh" );
@@ -69,6 +73,8 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
   updateOrder: function(event, ui){
     var sortedIds = this.$(".task-list").sortable("toArray")
     var that = this;
+
+    ui.item.children( ".item" ).triggerHandler( "focusout" );
 
     this.collection.each(function(task){
       var rank = sortedIds.indexOf(task.id.toString())

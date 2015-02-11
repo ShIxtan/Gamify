@@ -131,8 +131,14 @@
 }
 
 .title {
+  float: left;
   line-height: 28px;
   padding-left: 10px;
+  width: 125px;
+  overflow: hidden;
+  height: 28px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .task-box {

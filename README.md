@@ -67,7 +67,7 @@ I'll update the Rails User model to track gold. Add one more model for Rewards t
 - [x] allow adding tags to tasks, as well as displaying only tasks with a tag
 - [ ] allow changing the difficulty of a task, modifying it's rewards.
 - [ ] give random backgrounds as rewards along with xp and gold.
-- [ ] use chart.js or something similar to display click history
+- [x] use chart.js or something similar to display click history
 - [ ] keep completed todos so user can see them
 - [ ] have guest data persist if guest wants to make an account
 - [ ] allow users to choose a "class," which displays a different avatar.
