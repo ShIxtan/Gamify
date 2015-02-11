@@ -6,8 +6,8 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     this.user = options.user;
     this.box = "edit"
     this.listenTo(this.model, "change", function(){
-      this.renderBox();
-      this.renderStrength();
+      this.render();
+      this.afterRender();
     }.bind(this))
   },
 
