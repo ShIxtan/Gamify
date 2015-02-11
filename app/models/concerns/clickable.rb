@@ -6,8 +6,14 @@ module Clickable
   end
 
   def clicks
-    datecount = self.task_clicks.where("date(created_at) > ?", 15.days.ago).group("date(created_at)").count
+    result = {labels: [], data: []}
+    date_count = self.task_clicks.where("date(created_at) > ?", 15.days.ago).group("date(created_at)").count
 
-    datecount.map { |date| date.last }
+    15.times do |day|
+      result[:labels].unshift(day.days.ago.to_date)
+      result[:data].unshift(date_count[day.days.ago.to_date] || 0)
+    end
+
+    return result
   end
 end
