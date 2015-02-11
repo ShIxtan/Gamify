@@ -37,14 +37,20 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   },
 
   renderEdit: function(){
-    this.box = "edit"
+    if (this.box === "graph"){
+      this.box = "edit"
+      this.$('.edit').trigger("click")
+    }
     this.removeSubviews();
     boxView = new GamifyApp.Views.TaskEdit({model: this.model, collection: this.user.tags()});
     this.addSubview(".item-box", boxView);
   },
 
   renderGraph: function(){
-    this.box = "graph"
+    if (this.box === "edit"){
+      this.box = "graph"
+      this.$('.graph').trigger("click")
+    }
     this.removeSubviews();
     this.model.fetch({
       success: function(){
