@@ -142,7 +142,6 @@ TaskClick.create!([
     {clickable_type: "Habit", clickable_id: 5, sign: 1},
     {clickable_type: "Habit", clickable_id: 5, sign: 1},
     {clickable_type: "Habit", clickable_id: 5, sign: 1}
-  }
 ])
 TaskClick.all.each do |click|
   click.update_attribute :created_at, (rand*15).days.ago
