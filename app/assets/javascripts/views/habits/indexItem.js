@@ -14,20 +14,14 @@ GamifyApp.Views.HabitIndexItem = GamifyApp.Views.TaskIndexItem.extend({
     if (this.model.get("quality") === "gb"){
       this.$('.checks').addClass("gb")
       this.$(".hide").removeClass("hide");
-      this.$(".plus").addClass("selected")
-      this.$(".min").addClass("selected")
     } else if (this.model.get("quality") === "b"){
       this.$('.checks').removeClass("gb")
       this.$(".hide").removeClass("hide");
       this.$(".check").addClass("hide");
-      this.$(".plus").removeClass("selected");
-      this.$(".min").addClass("selected");
     } else {
       this.$('.checks').removeClass("gb")
       this.$(".hide").removeClass("hide");
       this.$(".minus").addClass("hide")
-      this.$(".plus").addClass("selected");
-      this.$(".min").removeClass("selected");
     }
     return this;
   },

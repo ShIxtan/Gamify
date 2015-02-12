@@ -59,5 +59,16 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
     });
 
     this.$(".spinner").spinner("value", this.model.get("cost"));
+
+    if (this.model.get("quality") === "gb"){
+      this.$(".plus").addClass("selected")
+      this.$(".min").addClass("selected")
+    } else if (this.model.get("quality") === "b"){
+      this.$(".plus").removeClass("selected");
+      this.$(".min").addClass("selected");
+    } else {
+      this.$(".plus").addClass("selected");
+      this.$(".min").removeClass("selected");
+    }
   }
 })
