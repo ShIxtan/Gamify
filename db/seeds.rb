@@ -150,7 +150,7 @@ end
 [Daily, Reward, Habit, Todo].each do |class_type|
   class_type.all.each do |task|
     ids = []
-    rand*4.times { ids.push(rand*4) }
+    rand*5.times { ids.push(rand*4 + 1) }
     task.tag_ids = ids
   end
 end
