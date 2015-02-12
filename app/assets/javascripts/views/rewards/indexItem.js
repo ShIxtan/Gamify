@@ -14,5 +14,8 @@ GamifyApp.Views.RewardIndexItem = GamifyApp.Views.TaskIndexItem.extend({
     } else {
       this.$el.removeClass("disabled")
     }
+
+    this.$('.coin').addClass("coins")
+    this.$el.addClass("list-group-item-warning")
   }
 })

@@ -108,11 +108,12 @@
   color: #E3C832;
 }
 
-.money .coins{
+.coins{
   content: asset-data-url("Gold.png");
   float: left;
   margin-right: 7px;
 }
+
 
 .details, .details small{
   float: left;
@@ -154,15 +155,21 @@
   padding-top: 5px;
 }
 
+.check .coins{
+  height: 20px;
+  width: auto;
+  float: left;
+  margin-top: -5px;
+}
 .reward .check {
-  font-size: 20px;
+  float: left;
+  font-size: 18px;
   line-height: 10px;
   font-weight: bold;
-  background: #E6E680;
 }
 
-.reward .check:hover {
-  color: #7A7A00;
+.reward .checks {
+  width: 70px;
 }
 
 .item {
