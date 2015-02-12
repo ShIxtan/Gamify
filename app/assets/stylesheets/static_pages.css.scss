@@ -260,7 +260,7 @@ body {
 .form {
   position: relative;
   top: 50%;
-  transform: translateY(50%);
+  transform: translateY(25%);
   margin: auto;
   background: rgba(100,100,100,.5);
   width: 420px;
@@ -311,6 +311,11 @@ li.list-group-item-primary {
 }
 
 .navbar .nav.navbar-nav li a:hover{
+  background: rgba(100,100,100,.5);
+  color: #66FF99;
+}
+
+.navbar .nav.navbar-nav li.active a{
   background: rgba(100,100,100,.5);
   color: #66FF99;
 }
