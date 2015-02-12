@@ -259,6 +259,20 @@ li.list-group-item-primary {
   background: #B6D6E3;
 }
 
+.btn-guest{
+  position: relative;
+  float: right;
+}
+
+.btn-play, .btn-sign {
+  margin-left: 5px;
+  float: left;
+}
+
+.btns {
+  height: 40px;
+}
+
 .editable {
   cursor: pointer;
 }
