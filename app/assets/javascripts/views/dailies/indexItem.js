@@ -26,6 +26,8 @@ GamifyApp.Views.DailyIndexItem = GamifyApp.Views.TaskIndexItem.extend({
       this.$el.addClass("disabled");
       this.buttonClass = "glyphicon-ok";
     }
+
+    this.model.trigger("change");
   },
 
   doDamage: function(){
