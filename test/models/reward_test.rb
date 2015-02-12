@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :string
+#  cost        :integer          default("10")
 #
 
 require 'test_helper'
