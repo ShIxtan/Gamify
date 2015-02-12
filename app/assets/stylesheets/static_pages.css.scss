@@ -299,9 +299,20 @@ li.list-group-item-primary {
   cursor: pointer;
 }
 
-.navbar {
-  background: #eee;
-  opacity: .9;
+.header .navbar {
+  background: rgba(100,100,100,.5);
+  color: #66FF99;
+  border: none;
+}
+
+.navbar .nav.navbar-nav li a{
+  background: transparent;
+  color: #66FF99;
+}
+
+.navbar .nav.navbar-nav li a:hover{
+  background: rgba(100,100,100,.5);
+  color: #66FF99;
 }
 
 .navbar img {
