@@ -1,5 +1,5 @@
 <div class="form">
-  <img alt="logo" src="/assets/logo.png" />
+  <%= image_tag("logo.png") %>
   <form id="signup" action="<%= users_url %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
