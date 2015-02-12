@@ -9,6 +9,10 @@
   display: block;
 }
 
+.selected {
+  color: #333333;
+}
+
 .task-tags {
   list-style-type: none;
 }
@@ -95,8 +99,12 @@
 }
 
 .money {
-  float: left;
   color: #E3C832;
+}
+
+.money img{
+  float: left;
+  margin-right: 7px;
 }
 
 .details, .details small{
@@ -283,4 +291,9 @@ li.list-group-item-primary {
 
 .editable {
   cursor: pointer;
+}
+
+.navbar {
+  background: #eee;
+  opacity: .9;
 }
