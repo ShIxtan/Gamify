@@ -102,7 +102,8 @@
   color: #E3C832;
 }
 
-.money img{
+.money .coins{
+  content: asset-data-url("Gold.png");
   float: left;
   margin-right: 7px;
 }
@@ -320,7 +321,8 @@ li.list-group-item-primary {
   color: #66FF99;
 }
 
-.navbar img {
+.navbar .logo{
+  content: asset-data-url("logoHead.png");
   height: 130%;
   width: auto;
 }
