@@ -265,7 +265,13 @@ body {
   background: rgba(100,100,100,.5);
   width: 420px;
   padding: 20px;
-  color: #66FF99;
+}
+
+.form img{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
 }
 
 li.list-group-item-primary {
@@ -296,4 +302,9 @@ li.list-group-item-primary {
 .navbar {
   background: #eee;
   opacity: .9;
+}
+
+.navbar img {
+  height: 130%;
+  width: auto;
 }
