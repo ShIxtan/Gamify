@@ -37,11 +37,7 @@ User.create!([
   {session_token: "GSykJIlQI30hl-5wQpwOhg", username: "Guest", password_digest: "$2a$10$D6k3ysOXr4RGiZBV3vmKtey99Bxg0NxXTjhOkdhoZir2Q3Mf1D2CS", gold: 37, xp: 2, health: 45, level: 2, max_health: 50}
 ])
 
-#  clickable_type :string           not null
-#  clickable_id   :integer          not null
-#  sign           :integer          default("1")
 TaskClick.create!([
-  {
     {clickable_type: "Reward", clickable_id: 1, sign: 1}
     {clickable_type: "Reward", clickable_id: 1, sign: 1}
     {clickable_type: "Reward", clickable_id: 1, sign: 1}
