@@ -12,9 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.sortable
-//= require jquery.ui.accordion
-//= require jquery.ui.spinner
+//= require jquery-ui
+// this is not full jquery-ui, it includes only accordion, spinner, sortable, and some effects
 //= require jquery.serializejson
 //= require jquery.editable
 //= require underscore
