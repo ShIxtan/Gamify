@@ -5,5 +5,14 @@ GamifyApp.Views.RewardIndexItem = GamifyApp.Views.TaskIndexItem.extend({
     this.xp = 0;
     this.buttonClass = "";
     this.$el.addClass("reward");
+    this.listenTo(this.user, "change:gold", this.rend.bind(this))
+  },
+
+  rend: function(){
+    if (this.model.get('cost') > this.user.get('gold')){
+      this.$el.addClass("disabled")
+    } else {
+      this.$el.removeClass("disabled")
+    }
   }
 })
