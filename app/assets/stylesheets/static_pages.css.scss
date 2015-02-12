@@ -250,7 +250,7 @@ body {
   transform: translateY(50%);
   margin: auto;
   background: rgba(100,100,100,.5);
-  width: 400px;
+  width: 420px;
   padding: 20px;
   color: #66FF99;
 }
@@ -265,8 +265,11 @@ li.list-group-item-primary {
 }
 
 .btn-play, .btn-sign {
-  margin-left: 5px;
   float: left;
+}
+
+.btn-sign{
+  margin-left: 2px;
 }
 
 .btns {

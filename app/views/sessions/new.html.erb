@@ -13,10 +13,10 @@
   </form>
 
   <div class="btns">
-    <input type="submit"  form="signup" class="btn btn-default btn-lg btn-info" value="Play" id="Play">
-    <a href="<%= new_user_url %>"><button name="New User" class="btn btn-default btn-lg btn-primary">New User</button></a>
+    <input type="submit"  form="signup" class="btn btn-default btn-lg btn-info btn-play" value="Play" id="Play">
+    <a href="<%= new_user_url %>"><button name="New User" class="btn btn-default btn-lg btn-primary btn-sign">New User</button></a>
     <form method="post" action="<%= session_url %>">
-      <input type="submit" class="btn btn-default btn-lg btn-success" value="Sign In as Guest!">
+      <input type="submit" class="btn btn-default btn-lg btn-success btn-guest" value="Sign In as Guest!">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="user[username]" value="Guest">
       <input type="hidden" name="user[password]" value="password">
