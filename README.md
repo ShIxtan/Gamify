@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: https://gamify.herokuapp.com/
+[heroku]: https://www.gamifi.life/
 
 ## Minimum Viable Product
 gamify is a clone of HabitRPG built on Rails and Backbone. Users can:
