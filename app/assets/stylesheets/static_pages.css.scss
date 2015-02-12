@@ -76,7 +76,12 @@
   height: 400px;
 }
 
-.stat-icon {
+.bars {
+  width: 200px;
+  float: left;
+}
+
+.stat-icon{
   float: left;
   padding-right: 5px;
   font-size: 14px;
@@ -85,16 +90,16 @@
 .stat-icon.health {
   color: #d9534f;
 }
-
-.bars {
-  width: 200px;
-  float: left;
-}
 .stat-icon.xp {
   color: #f0ad4e;
 }
 
-.details, .details small {
+.money {
+  float: left;
+  color: #E3C832;
+}
+
+.details, .details small{
   float: left;
   color: #66FF99;
 }

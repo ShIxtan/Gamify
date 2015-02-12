@@ -1,8 +1,7 @@
-<div class="details col-md-2">
-  <%= user.escape("username") %>
+<div class="details col-md-1">
+  <%= user.escape("username") %><br>
   <small>
     Level <%= user.get("level") %>
-    Gold <%= user.get("gold") %>
   </small>
 </div>
 
@@ -20,4 +19,9 @@
       <span class="sr-only"></span>
     </div>
   </div>
+</div>
+
+<div class="money col-md-1 col-md-offset-1">
+  <span class="stat-icon gold glyphicon glyphicon-record"></span>
+  <%= user.get("gold") %>
 </div>
