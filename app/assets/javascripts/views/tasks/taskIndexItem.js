@@ -43,6 +43,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     if (this.open && (this.box === "edit")){
       this.open = false;
       this.box = null;
+      this.removeSubviews();
     } else if (this.open && (this.box === "graph")){
       this.open = false
       this.box = null
@@ -58,6 +59,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     if (this.open && (this.box === "graph")){
       this.open = false;
       this.box = null;
+      this.removeSubviews();
     } else if (this.open && (this.box === "edit")){
       this.open = false
       this.box = null
