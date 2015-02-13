@@ -75,8 +75,6 @@ GamifyApp.Views.TaskIndex = Backbone.CompositeView.extend({
     var sortedIds = this.$(".task-list").sortable("toArray")
     var that = this;
 
-    ui.item.children( ".item" ).triggerHandler( "focusout" );
-
     this.collection.each(function(task){
       var rank = sortedIds.indexOf(task.id.toString())
       task.set({rank: rank});
