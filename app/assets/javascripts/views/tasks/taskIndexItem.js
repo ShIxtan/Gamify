@@ -30,10 +30,12 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
   },
 
   renderBox: function(){
-    if (this.box === "edit"){
-      this.renderEdit()
-    } else if (this.box === "graph"){
-      this.renderGraph();
+    if (this.open){
+      if (this.box === "edit"){
+        this.renderEdit()
+      } else if (this.box === "graph"){
+        this.renderGraph();
+      }
     }
   },
 
