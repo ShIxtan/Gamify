@@ -8,7 +8,7 @@ GamifyApp.Views.DailyIndexItem = GamifyApp.Views.TaskIndexItem.extend({
     this.$el.addClass('daily');
     this.isDisabled();
     this.doDamage();
-    this.listenTo(this.model, "sync", this.isDisabled);
+    this.listenTo(this.model, "sync", this.isDisabled.bind(this));
   },
 
   isDisabled: function(){

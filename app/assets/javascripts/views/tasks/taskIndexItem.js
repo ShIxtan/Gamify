@@ -92,7 +92,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
     this.$el.removeClass("list-group-item-success");
     this.$el.removeClass("list-group-item-primary");
 
-    if (str === 1){
+    if (str < 2){
       this.$el.addClass("list-group-item-danger");
     } else if (str === 2){
       this.$el.addClass("list-group-item-warning");
@@ -100,7 +100,7 @@ GamifyApp.Views.TaskIndexItem = Backbone.CompositeView.extend({
       this.$el.addClass("list-group-item-info");
     } else if (str === 4){
       this.$el.addClass("list-group-item-success");
-    } else if (str === 5){
+    } else {
       this.$el.addClass("list-group-item-primary");
     }
   },
