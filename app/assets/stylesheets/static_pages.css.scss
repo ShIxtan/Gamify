@@ -86,9 +86,14 @@
   height: 400px;
 }
 
+.todo .graph {
+  display: none;
+}
+
 .bars {
   width: 200px;
   float: left;
+  margin-left: 40px;
 }
 
 .stat-icon{

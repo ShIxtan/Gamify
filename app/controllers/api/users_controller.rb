@@ -14,6 +14,11 @@ module Api
       render :show
     end
 
+    def new
+      @user = User.seed_new
+      render :show
+    end
+
     private
 
     def user_params
