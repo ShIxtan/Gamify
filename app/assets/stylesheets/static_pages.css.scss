@@ -235,12 +235,22 @@
   z-index: 20;
 }
 
+.popups .ui-effects-wrapper .popup {
+  width: 100% !important;
+  height: 30px !important;
+  // margin: 5px 0 !important;
+}
+
+.ui-effects-wrapper{
+  height: 30px !important;
+}
+
 .popup {
   padding: 5px;
-  margin: 5px;
   border-radius: 3px;
   width: 100%;
   box-shadow: 1px 1px 1px rgba(34, 36, 34, 0.4);
+  margin: 5px 0;
 }
 
 .popup.gold {
