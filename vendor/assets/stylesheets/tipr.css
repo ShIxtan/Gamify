@@ -26,9 +26,7 @@ http://www.tipue.com/tipr
 {
      display: none;
      position: absolute;
-     margin-top: -75px;
-     top: 30px;
-     bottom: -30px;
+     margin-top: -60px;
      z-index: 1000;
 }
 .tipr_point_top, .tipr_point_bottom
