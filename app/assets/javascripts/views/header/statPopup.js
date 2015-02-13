@@ -22,13 +22,13 @@ GamifyApp.Views.StatPopup = Backbone.CompositeView.extend({
     var that = this
     this.$el.show("drop", { direction: "right",
                             easing: "easeOutElastic"},
-                            400,
+                            600,
                             function() {
                               setTimeout(function () {
                                 that.$el.hide( "drop", { direction: "right" }, 1000, function(){
                                   that.remove();
                                 });
-                            }, 4000);
-    });
+                              }, 4000);
+                            });
   }
 })
