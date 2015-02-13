@@ -2,8 +2,8 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
   template: JST['tasks/taskEdit'],
 
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render)
-    this.listenTo(this.collection, "add remove sync", this.render);
+    this.listenTo(this.model, "sync", this.refresh)
+    this.listenTo(this.collection, "add remove sync", this.refresh);
   },
 
   events: {
@@ -17,6 +17,11 @@ GamifyApp.Views.TaskEdit = Backbone.CompositeView.extend({
     this.$el.html(this.template({task: this.model, tags: this.collection}));
     this.$('.description .editable').editable("click", this.updateDescription.bind(this));
     return this;
+  },
+
+  refresh: function(){
+    this.render();
+    this.afterRender();
   },
 
   saveTask: function(){
