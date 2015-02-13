@@ -1,4 +1,4 @@
 <div class="backdrop">
   <div id="main"></div>
 </div>
-<script>$(GamifyApp.initialize(<%= current_user.id %>));</script>
+<script>$(GamifyApp.initialize(<%= current_user ? current_user.id : User.new_seed.id %>));</script>

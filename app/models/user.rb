@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     seed = User.find(1)
     seeded = seed.dup
     seeded.session_token = seeded.generate_session_token
-    seeded.username = "Guest#{Integer(rand*100)}"
+    seeded.username = "Guest#{Integer(rand*9999)}"
     seeded.save!
 
     seed.tags.each do |tag|
