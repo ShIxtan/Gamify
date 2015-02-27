@@ -19,7 +19,7 @@ GamifyApp.Views.DailyIndexItem = GamifyApp.Views.TaskIndexItem.extend({
       var lastChecked = new Date(this.model.get("last_checked"))
     }
 
-    if (!lastChecked || (midnight > lastChecked)){
+    if ((!lastChecked) || (midnight > lastChecked)){
       this.$el.removeClass("disabled");
       this.buttonClass = "glyphicon-unchecked";
     } else {
@@ -41,7 +41,7 @@ GamifyApp.Views.DailyIndexItem = GamifyApp.Views.TaskIndexItem.extend({
 
     if ((yesterday > lastChecked) || (!lastChecked && (createdAt < midnight))){
       var newStrength = this.model.get('strength') - 1
-      this.model.save({"last_checked": new Date(), "strength": newStrength});
+      this.model.save({"last_checked": yesterday.setHours(1), "strength": newStrength});
       this.user.damage(this.damage);
       this.user.save();
     }
