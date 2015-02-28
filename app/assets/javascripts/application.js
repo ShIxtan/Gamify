@@ -21,6 +21,7 @@
 //= require bootstrap
 //= require tipr
 //= require chart
+//= require shepherd
 //= require gamify_app
 //= require_tree ../templates
 //= require_tree ./utils
