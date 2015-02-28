@@ -33,67 +33,7 @@ class User < ActiveRecord::Base
   has_many :tags
 
   def self.new_seed
-    seed = User.find(1)
-    seeded = seed.dup
-    seeded.session_token = seeded.generate_session_token
-    seeded.username = "Guest#{Integer(rand*9999)}"
-    seeded.save!
-
-    seed.tags.each do |tag|
-      new_tag = tag.dup
-      new_tag.save!
-      seeded.tags << new_tag
-    end
-
-    seed.dailies.each do |daily|
-      new_daily = daily.dup
-      new_daily.save!
-      seeded.dailies << new_daily
-      tag_ids = []
-      daily.tags.each do |tag|
-        new_tag = seeded.tags.find_by(name: tag.name)
-        tag_ids << new_tag.id if new_tag
-      end
-      new_daily.tag_ids = tag_ids
-    end
-
-    seed.todos.each do |todo|
-      new_todo = todo.dup
-      new_todo.save!
-      seeded.todos << new_todo
-      tag_ids = []
-      todo.tags.each do |tag|
-        new_tag = seeded.tags.find_by(name: tag.name)
-        tag_ids << new_tag.id if new_tag
-      end
-      new_todo.tag_ids = tag_ids
-    end
-
-    seed.rewards.each do |reward|
-      new_reward = reward.dup
-      new_reward.save!
-      seeded.rewards << new_reward
-      tag_ids = []
-      reward.tags.each do |tag|
-        new_tag = seeded.tags.find_by(name: tag.name)
-        tag_ids << new_tag.id if new_tag
-      end
-      new_reward.tag_ids = tag_ids
-    end
-
-    seed.habits.each do |habit|
-      new_habit = habit.dup
-      new_habit.save!
-      seeded.habits << new_habit
-      tag_ids = []
-      habit.tags.each do |tag|
-        new_tag = seeded.tags.find_by(name: tag.name)
-        tag_ids << new_tag.id if new_tag
-      end
-      new_habit.tag_ids = tag_ids
-    end
-
-    return seeded
+    Rails.application.load_seed
   end
 
   def maybe_level_up
