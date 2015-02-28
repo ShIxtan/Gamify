@@ -10,11 +10,11 @@ dailies = Daily.create!([
   {title: "Make camp early", rank: 4, user_id: user.id, last_checked: nil, description: "In bed by 12", strength: 3}
 ])
 habits = Habit.create!([
-  {title: "Spell Research", user_id: user.id, rank: 0, quality: "gb", description: "Make a git commit", strength: 1},
-  {title: "Strength Potion", user_id: user.id, rank: 1, quality: "gb", description: "eat eggs", strength: 2},
-  {title: "Prestidigitation", user_id: user.id, rank: 5, quality: "gb", description: "Do laundry/dishes", strength: 3},
-  {title: "Look for Quests", user_id: user.id, rank: 3, quality: "gb", description: "Apply for a job", strength: 4},
-  {title: "Learn new Cantrip", user_id: user.id, rank: 2, quality: "gb", description: "Add cards to Anki", strength: 5},
+  {title: "Spell Research", user_id: user.id, rank: 0, quality: "g", description: "Make a git commit", strength: 1},
+  {title: "Strength Potion", user_id: user.id, rank: 1, quality: "gb", description: "eat eggs for breakfast", strength: 2},
+  {title: "Prestidigitation", user_id: user.id, rank: 5, quality: "g", description: "Do laundry/dishes", strength: 3},
+  {title: "Look for Quests", user_id: user.id, rank: 3, quality: "g", description: "Apply for a job", strength: 4},
+  {title: "Learn new Cantrip", user_id: user.id, rank: 2, quality: "g", description: "Add cards to Anki", strength: 5},
   {title: "Hoard My Gold", user_id: user.id, rank: 4, quality: "gb", description: "spend $0 other than transit and bills", strength: 5}
 ])
 rewards = Reward.create!([
@@ -148,10 +148,11 @@ clicks.each do |click|
   click.update_attribute :created_at, (rand*15).days.ago
 end
 
+user_tags = user.tag_ids
 [dailies, rewards, habits, todos].each do |class_type|
   class_type.each do |task|
     ids = []
-    rand*5.times { ids.push(rand*4 + 1) }
+    rand*5.times { ids.push(user_tags[rand*4]) }
     task.tag_ids = ids
   end
 end
