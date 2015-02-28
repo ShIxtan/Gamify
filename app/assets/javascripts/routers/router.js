@@ -24,8 +24,8 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     });
 
     tour.addStep ('welcome-step', {
-      title: 'Welcome!',
-      text: 'Welcome to Gamifi.life! <br><br>We improve productivity by rewarding you for every success.',
+      title: 'Welcome to Gamifi.life!',
+      text: 'We improve productivity by rewarding you for every success.',
       buttons: [
         {text: 'Next',
         action: tour.next}
@@ -33,6 +33,7 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     });
 
     tour.addStep ('daily-step', {
+      title: "",
       text: 'Try preparing your spells to see what happens! Dailies can be performed once per day. <br><br> (we prefer fun names for habits, hover over them to see description)',
       attachTo: ".task.daily right",
       advanceOn: ".check click",
@@ -43,6 +44,7 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     });
 
     tour.addStep ('gold-step', {
+      title: "",
       text: 'This is your gold. You earn gold every time you do one of your tasks',
       attachTo: ".coins bottom",
       buttons: [
@@ -52,6 +54,7 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     });
 
     tour.addStep ('reward-step', {
+      title: "",
       text: 'Use gold to purchase rewards!',
       attachTo: ".task.reward left",
       advanceOn: ".check click",
@@ -62,6 +65,7 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     });
 
     tour.addStep ('habit-step', {
+      title: "",
       text: 'Habits can be either good or bad, click the pencil to edit a task',
       attachTo: ".task.habit right",
       advanceOn: ".edit click",
@@ -72,6 +76,7 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     });
 
     tour.addStep ('bars-step', {
+      title: "",
       text: 'Doing tasks gains experience points. If you get enough XP, you level up! <br><br> Be careful though, missing your dailies or doing bad habits deals damage.',
       attachTo: ".bars right",
       buttons: [
@@ -81,8 +86,9 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     });
 
     tour.addStep ('graph-step', {
+      title: "",
       text: 'Click the graph button to see your hisory with a task',
-      attachTo: ".task.habit .graph right",
+      attachTo: ".task.habit right",
       advanceOn: ".graph click",
       buttons: [
         {text: 'Next',
@@ -91,6 +97,7 @@ GamifyApp.Routers.Router = Backbone.Router.extend({
     });
 
     tour.addStep ('tag-step', {
+      title: "",
       text: 'Click tags to see only tasks with that tag.',
       attachTo: ".tags div bottom",
       advanceOn: ".tag click",
