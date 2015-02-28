@@ -1,5 +1,10 @@
 <div class="details col-md-1">
-  <%= user.escape("username") %><br>
+  <% if (user.escape("username").slice(0, 5) === "Guest"){ %>
+    <% var name = "Guest" %>
+  <% } else { %>
+    <% var name = user.escape("username") %>
+  <% } %>
+  <%= name %><br>
   <small>
     Level <%= user.get("level") %>
   </small>

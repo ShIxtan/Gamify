@@ -1,4 +1,10 @@
 <div class="backdrop">
   <div id="main"></div>
 </div>
-<script>$(GamifyApp.initialize(<%= current_user ? current_user.id : User.new_seed.id %>));</script>
+<% if current_user %>
+  <% user = current_user%>
+<% else %>
+  <% user = User.new_seed %>
+  <% login!(user) %>
+<% end %>
+<script>$(GamifyApp.initialize(<%= user.id %>));</script>

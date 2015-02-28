@@ -16,6 +16,7 @@ module Api
 
     def new
       @user = User.seed_new
+      login!(@user)
       render :show
     end
 

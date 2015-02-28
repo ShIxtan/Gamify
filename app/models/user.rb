@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 
   def self.new_seed
     Rails.application.load_seed
+    User.last
   end
 
   def maybe_level_up

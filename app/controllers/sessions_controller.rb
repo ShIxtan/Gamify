@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
   helper_method :current_users
 
   def create
-    @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
+    if params[:user][:username] == "Guest"
+      @user = User.new_seed
+    else
+      @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
+    end
 
     if @user
       login!(@user)
