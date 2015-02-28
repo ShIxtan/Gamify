@@ -35,7 +35,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new_seed
+    @user.username = ""
     render :new
   end
 
